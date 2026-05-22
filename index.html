@@ -3,158 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wuxing Zodiac Fashion - Lucky Style & Fortune</title>
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/solozhangxiru/fengshui_skill_api/main/%E5%A4%B4%E5%83%8F.png">
+    <title>Wuxing Zodiac Fashion</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
         body {
-            background: linear-gradient(135deg, #1a103f, #2c1a5f, #4a2a8f);
+            font-family: Arial, sans-serif;
+            background-color: #2d1b69;
             color: white;
-            min-height: 100vh;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            margin: 0;
         }
-
         .container {
             max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            width: 100%;
         }
-
-        .logo {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 15px;
-        }
-
         h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: #f0e6ff;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
-
         .subtitle {
-            font-size: 16px;
+            text-align: center;
+            margin-bottom: 2rem;
             opacity: 0.9;
-            margin-bottom: 40px;
         }
-
-        .form-box {
-            background: rgba(255,255,255,0.08);
-            padding: 30px;
+        .form-card {
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
+            padding: 2rem;
+            margin-bottom: 2rem;
         }
-
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
-
         label {
             display: block;
-            margin-bottom: 8px;
-            font-size: 15px;
-            text-align: left;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 14px;
-            border-radius: 8px;
-            border: none;
-            background: rgba(255,255,255,0.15);
-            color: white;
-            font-size: 16px;
-        }
-
-        button {
-            background: linear-gradient(90deg, #9d50ff, #7a3dd9);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 100%;
+            margin-bottom: 0.5rem;
             font-weight: bold;
         }
-
-        .result {
-            background: rgba(255,255,255,0.07);
-            padding: 25px;
-            border-radius: 14px;
-            text-align: left;
-            line-height: 1.7;
-        }
-
-        .section-title {
-            font-size: 20px;
-            margin: 30px 0 15px;
-        }
-
-        .info-table {
+        input, select {
             width: 100%;
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 20px;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1rem;
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        button {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background-color: #9333ea;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #7c3aed;
+        }
+        .result-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .about-section {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            margin: 0.5rem 0;
+        }
+        .loading {
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 2rem 0;
+        }
+        .error {
+            color: #ff6b6b;
+            text-align: center;
+            margin: 2rem 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img class="logo" src="https://raw.githubusercontent.com/solozhangxiru/fengshui_skill_api/main/%E5%A4%B4%E5%83%8F.png" alt="Logo">
         <h1>Wuxing Zodiac Fashion</h1>
         <p class="subtitle">Your Lucky Color & Best Fashion Style Advisor</p>
 
-        <div class="form-box">
-            <div class="form-group">
-                <label>Your Birthday (YYYY-MM-DD)</label>
-                <input type="date" id="birthDate">
-            </div>
-            <div class="form-group">
-                <label>Gender</label>
-                <select id="gender">
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Scene</label>
-                <select id="scene">
-                    <option value="work">Work</option>
-                    <option value="date">Date</option>
-                    <option value="casual">Casual</option>
-                    <option value="party">Party</option>
-                    <option value="sport">Sport</option>
-                    <option value="formal">Formal</option>
-                    <option value="festival">Festival</option>
-                </select>
-            </div>
-            <button>Get My Lucky Style</button>
+        <div class="form-card">
+            <form id="form">
+                <div class="form-group">
+                    <label for="birthDate">Your Birthday (YYYY-MM-DD)</label>
+                    <input type="date" id="birthDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" required>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="scene">Scene</label>
+                    <select id="scene" required>
+                        <option value="Work">Work</option>
+                        <option value="Date">Date</option>
+                        <option value="Daily">Daily</option>
+                        <option value="Party">Party</option>
+                        <option value="Sport">Sport</option>
+                    </select>
+                </div>
+
+                <button type="submit">Get My Lucky Style</button>
+            </form>
         </div>
 
-        <div class="result" id="result" style="display:none;">
-            <h3>Your Result</h3>
-            <p>Zodiac: <span id="zodiac"></span></p>
-            <p>Element (Wuxing): <span id="wuxing"></span></p>
-            <p>Lucky Color: <span id="color"></span></p>
-            <p>Best Style: <span id="style"></span></p>
-        </div>
+        <div id="result"></div>
 
-        <h2 class="section-title">About This Skill</h2>
-        <div class="info-table">
-            <p>✅ Analyze Zodiac & Five Elements</p>
-            <p>✅ Personal Lucky Color</p>
-            <p>✅ Fashion Style for Every Scene</p>
-            <p>✅ 100% Free & Easy to Use</p>
+        <div class="about-section">
+            <h2>About This Skill</h2>
+            <div class="form-card">
+                <ul class="feature-list">
+                    <li>✅ Analyze Zodiac & Five Elements</li>
+                    <li>✅ Personal Lucky Color</li>
+                    <li>✅ Fashion Style for Every Scene</li>
+                    <li>✅ 100% Free & Easy to Use</li>
+                </ul>
+            </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const birthDate = document.getElementById('birthDate').value;
+            const gender = document.getElementById('gender').value;
+            const scene = document.getElementById('scene').value;
+            const resultDiv = document.getElementById('result');
+            
+            resultDiv.innerHTML = '<div class="loading">正在分析中...</div>';
+
+            try {
+                const res = await fetch(`/api/index.js?birthDate=${birthDate}&gender=${gender}&scene=${scene}`);
+                const data = await res.json();
+
+                if (!res.ok) throw new Error('接口请求失败');
+
+                resultDiv.innerHTML = `
+                    <div class="result-card">
+                        <h2>Your Lucky Style</h2>
+                        <p><strong>Zodiac Animal:</strong> ${data.zodiacAnimal}</p>
+                        <p><strong>Zodiac Sign:</strong> ${data.zodiacSign}</p>
+                        <p><strong>Five Elements:</strong> ${data.fiveElements}</p>
+                        <p><strong>Recommended Color:</strong> ${data.suggestions.recommendedColor}</p>
+                        <p><strong>Outfit Advice:</strong> ${data.suggestions.outfitAdvice}</p>
+                        <p><strong>Five Elements Tip:</strong> ${data.suggestions.fiveElementsTip}</p>
+                        <p><strong>Lucky Colors:</strong> ${data.suggestions.luckyColors.join(', ')}</p>
+                    </div>
+                `;
+            } catch (err) {
+                resultDiv.innerHTML = `<div class="error">出错了：${err.message}</div>`;
+            }
+        });
+    </script>
 </body>
 </html>
