@@ -3,190 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wuxing Zodiac Fashion</title>
+    <title>Wuxing Zodiac Fashion | Your Personal Lucky Style Guide</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #2d1b69;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a103f 0%, #311b72 50%, #4c1d95 100%);
             min-height: 100vh;
-            background-image: radial-gradient(circle at top, #4c1d95, transparent 70%);
+            padding: 2rem 1rem;
+            color: #fff;
+            line-height: 1.6;
         }
+
         .container {
-            max-width: 800px;
-            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
         }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
         .header-icon {
             width: 80px;
             height: 80px;
             margin: 0 auto 1rem;
             display: block;
+            background: url('https://cdn-icons-png.flaticon.com/512/1149/1149166.png') center/cover no-repeat;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
         }
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+
+        .header h1 {
+            font-size: 2.2rem;
             background: linear-gradient(90deg, #e0e7ff, #a78bfa);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            margin-bottom: 0.5rem;
         }
-        .subtitle {
-            text-align: center;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+
+        .header p {
+            color: #c9b8f0;
             font-size: 1.1rem;
+            opacity: 0.9;
         }
+
+        /* Form Card */
         .form-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
             padding: 2rem;
-            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
         }
+
         .form-group {
             margin-bottom: 1.5rem;
         }
-        label {
+
+        .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
             font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #e2d8f7;
+            font-weight: 500;
         }
-        input, select {
+
+        .form-group input,
+        .form-group select {
             width: 100%;
             padding: 1rem;
+            border-radius: 10px;
             border: none;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
             font-size: 1rem;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
-        input:focus, select:focus {
+
+        .form-group input:focus,
+        .form-group select:focus {
             outline: none;
-            background-color: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.18);
             box-shadow: 0 0 0 2px #a78bfa;
         }
-        input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        button {
+
+        .submit-btn {
             width: 100%;
             padding: 1rem;
             border: none;
-            border-radius: 8px;
-            background-color: #9333ea;
-            color: white;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #8b46e8, #6c2cd0);
+            color: #fff;
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             margin-top: 0.5rem;
         }
-        button:hover {
-            background-color: #7c3aed;
+
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #9c5af5, #7d3de0);
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(147, 51, 234, 0.3);
         }
-        button:disabled {
-            background-color: #6b21a8;
+
+        .submit-btn:disabled {
+            background: #6b21a8;
             cursor: not-allowed;
             transform: none;
         }
+
+        /* Result Card */
         .result-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
             padding: 2rem;
-            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
             animation: fadeIn 0.5s ease;
         }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .result-card h2 {
-            color: #e0e7ff;
-            margin-top: 0;
+
+        .result-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
             margin-bottom: 1.5rem;
+        }
+
+        .result-header h2 {
             font-size: 1.8rem;
+            color: #e0e7ff;
         }
-        .result-item {
-            margin-bottom: 1rem;
-            line-height: 1.6;
+
+        .result-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
         }
-        .result-item strong {
+
+        .result-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .result-section h3 {
+            font-size: 1.2rem;
             color: #a78bfa;
-            min-width: 120px;
-            display: inline-block;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .lucky-colors {
+
+        .result-section p {
+            color: #e2d8f7;
+            line-height: 1.7;
+        }
+
+        .color-tags {
             display: flex;
             gap: 0.8rem;
-            margin-top: 0.5rem;
             flex-wrap: wrap;
+            margin-top: 0.8rem;
         }
+
         .color-tag {
-            background-color: rgba(167, 139, 250, 0.2);
-            padding: 0.3rem 0.8rem;
+            background: rgba(167, 139, 250, 0.2);
+            padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
             border: 1px solid rgba(167, 139, 250, 0.3);
+            color: #e0e7ff;
         }
+
+        /* About Section */
         .about-section {
             text-align: center;
             margin-top: 3rem;
         }
+
         .about-section h2 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
+            color: #e0e7ff;
         }
+
         .feature-list {
             list-style: none;
-            padding: 0;
             display: flex;
             flex-direction: column;
             gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2rem;
+            border-radius: 18px;
         }
+
         .feature-list li {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
             font-size: 1.1rem;
+            color: #e2d8f7;
         }
+
         .feature-list li::before {
             content: "✅";
         }
+
+        /* Loading & Error */
         .loading {
             text-align: center;
-            font-size: 1.2rem;
-            margin: 2rem 0;
+            padding: 3rem 0;
             color: #a78bfa;
+            font-size: 1.2rem;
         }
+
         .error {
             color: #ff6b6b;
             text-align: center;
-            margin: 2rem 0;
-            background-color: rgba(255, 107, 107, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
+            padding: 2rem;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://cdn-icons-png.flaticon.com/512/1149/1149166.png" alt="Yin Yang" class="header-icon">
-        <h1>Wuxing Zodiac Fashion</h1>
-        <p class="subtitle">Your Lucky Color & Best Fashion Style Advisor</p>
+        <div class="header">
+            <div class="header-icon"></div>
+            <h1>Wuxing Zodiac Fashion</h1>
+            <p>Your Personal Lucky Color & Style Advisor</p>
+        </div>
 
         <div class="form-card">
             <form id="form">
@@ -204,17 +269,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="scene">Scene</label>
+                    <label for="scene">Occasion</label>
                     <select id="scene" required>
-                        <option value="Work">Work</option>
-                        <option value="Date">Date</option>
-                        <option value="Daily">Daily</option>
-                        <option value="Party">Party</option>
-                        <option value="Sport">Sport</option>
+                        <option value="Work">Work / Office</option>
+                        <option value="Date">Date / Romantic</option>
+                        <option value="Daily">Daily Casual</option>
+                        <option value="Party">Party / Social Event</option>
+                        <option value="Sport">Sport / Fitness</option>
                     </select>
                 </div>
 
-                <button type="submit" id="submitBtn">Get My Lucky Style</button>
+                <button type="submit" class="submit-btn" id="submitBtn">Get My Lucky Style</button>
             </form>
         </div>
 
@@ -222,18 +287,48 @@
 
         <div class="about-section">
             <h2>About This Skill</h2>
-            <div class="form-card">
-                <ul class="feature-list">
-                    <li>Analyze Zodiac & Five Elements</li>
-                    <li>Personal Lucky Color</li>
-                    <li>Fashion Style for Every Scene</li>
-                    <li>100% Free & Easy to Use</li>
-                </ul>
-            </div>
+            <ul class="feature-list">
+                <li>Analyze Zodiac & Five Elements</li>
+                <li>Personalized Lucky Color</li>
+                <li>Fashion Tips for Every Occasion</li>
+                <li>100% Free & Easy to Use</li>
+            </ul>
         </div>
     </div>
 
     <script>
+        // 中文数据翻译函数
+        function translateResult(data) {
+            const zodiacAnimalMap = {
+                "马": "Horse", "牛": "Ox", "虎": "Tiger", "兔": "Rabbit",
+                "龙": "Dragon", "蛇": "Snake", "羊": "Goat", "猴": "Monkey",
+                "鸡": "Rooster", "狗": "Dog", "猪": "Pig", "鼠": "Rat"
+            };
+
+            const zodiacSignMap = {
+                "白羊座": "Aries", "金牛座": "Taurus", "双子座": "Gemini",
+                "巨蟹座": "Cancer", "狮子座": "Leo", "处女座": "Virgo",
+                "天秤座": "Libra", "天蝎座": "Scorpio", "射手座": "Sagittarius",
+                "摩羯座": "Capricorn", "水瓶座": "Aquarius", "双鱼座": "Pisces"
+            };
+
+            const fiveElementsMap = {
+                "金": "Metal", "木": "Wood", "水": "Water", "火": "Fire", "土": "Earth"
+            };
+
+            return {
+                zodiacAnimal: zodiacAnimalMap[data.zodiacAnimal] || data.zodiacAnimal,
+                zodiacSign: zodiacSignMap[data.zodiacSign] || data.zodiacSign,
+                fiveElements: fiveElementsMap[data.fiveElements] || data.fiveElements,
+                suggestions: {
+                    recommendedColor: data.suggestions.recommendedColor,
+                    outfitAdvice: data.suggestions.outfitAdvice,
+                    fiveElementsTip: data.suggestions.fiveElementsTip,
+                    luckyColors: data.suggestions.luckyColors
+                }
+            };
+        }
+
         document.getElementById('form').addEventListener('submit', async function(e) {
             e.preventDefault();
             const birthDate = document.getElementById('birthDate').value;
@@ -243,46 +338,57 @@
             const submitBtn = document.getElementById('submitBtn');
             
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Analyzing...';
-            resultDiv.innerHTML = '<div class="loading">正在分析你的五行与生肖运势...</div>';
+            submitBtn.textContent = 'Analyzing Your Fortune...';
+            resultDiv.innerHTML = '<div class="loading">✨ Calculating your Zodiac and Five Elements...</div>';
 
             try {
                 const res = await fetch(`/api/index.js?birthDate=${birthDate}&gender=${gender}&scene=${scene}`);
-                const data = await res.json();
+                const rawData = await res.json();
 
-                if (!res.ok) throw new Error('接口请求失败');
+                if (!res.ok) throw new Error('Failed to fetch your style analysis');
+
+                // 翻译数据
+                const data = translateResult(rawData);
 
                 resultDiv.innerHTML = `
                     <div class="result-card">
-                        <h2>✨ Your Lucky Style</h2>
-                        <div class="result-item">
-                            <strong>Zodiac Animal:</strong> ${data.zodiacAnimal}
+                        <div class="result-header">
+                            <span>✨</span>
+                            <h2>Your Personalized Lucky Style</h2>
                         </div>
-                        <div class="result-item">
-                            <strong>Zodiac Sign:</strong> ${data.zodiacSign}
+
+                        <div class="result-section">
+                            <h3>📊 Your Basic Fortune</h3>
+                            <p><strong>Chinese Zodiac:</strong> ${data.zodiacAnimal}</p>
+                            <p><strong>Western Zodiac:</strong> ${data.zodiacSign}</p>
+                            <p><strong>Five Elements:</strong> ${data.fiveElements}</p>
                         </div>
-                        <div class="result-item">
-                            <strong>Five Elements:</strong> ${data.fiveElements}
+
+                        <div class="result-section">
+                            <h3>🎨 Recommended Lucky Color</h3>
+                            <p>${data.suggestions.recommendedColor}</p>
                         </div>
-                        <div class="result-item">
-                            <strong>Recommended Color:</strong> ${data.suggestions.recommendedColor}
+
+                        <div class="result-section">
+                            <h3>👗 Outfit Advice for Your Occasion</h3>
+                            <p>${data.suggestions.outfitAdvice}</p>
                         </div>
-                        <div class="result-item">
-                            <strong>Outfit Advice:</strong> ${data.suggestions.outfitAdvice}
+
+                        <div class="result-section">
+                            <h3>💡 Five Elements Lucky Tip</h3>
+                            <p>${data.suggestions.fiveElementsTip}</p>
                         </div>
-                        <div class="result-item">
-                            <strong>Five Elements Tip:</strong> ${data.suggestions.fiveElementsTip}
-                        </div>
-                        <div class="result-item">
-                            <strong>Lucky Colors:</strong>
-                            <div class="lucky-colors">
+
+                        <div class="result-section">
+                            <h3>🌈 All Your Lucky Colors</h3>
+                            <div class="color-tags">
                                 ${data.suggestions.luckyColors.map(color => `<span class="color-tag">${color}</span>`).join('')}
                             </div>
                         </div>
                     </div>
                 `;
             } catch (err) {
-                resultDiv.innerHTML = `<div class="error">出错了：${err.message}</div>`;
+                resultDiv.innerHTML = `<div class="error">❌ Oops! Something went wrong: ${err.message}</div>`;
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Get My Lucky Style';
