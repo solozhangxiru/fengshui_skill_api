@@ -1,13 +1,27 @@
-# 🌟 Wuxing Zodiac Fashion Skill
-A powerful AI fortune & fashion advisor that analyzes your Chinese Zodiac, constellation, and Five Elements to recommend your lucky colors and best outfits.
+# Five Elements & Zodiac Fashion Skill
+> 🧿 A professional AI skill that analyzes your five elements and zodiac signs, and provides exclusive lucky color matching and fashion advice for every occasion.
 
-## ✨ Features
-- Auto-calculate your Chinese Zodiac
-- Analyze your Five Elements (Wu Xing) attributes
-- Lucky color & fashion style recommendations
-- 7 daily life scenes supported
-- 100% free & open-source
+## ✨ Description
+This skill combines traditional Chinese five elements and zodiac culture with modern fashion matching. By analyzing your birth date, gender and occasion, it provides personalized lucky color recommendations and scene-based dressing suggestions, helping you improve your personal temperament and daily fortune.
 
-## 🚀 How to Install
-```bash
-npx skills add solozhangxiru/fengshui_skill_api
+## 🎯 Core Features
+- ✅ Accurate Five Elements & Zodiac Analysis
+- ✅ Exclusive Lucky Color Matching
+- ✅ Scene-based Fashion Advice (Work/Date/Daily/Party/Sport)
+- ✅ 100% Free & Easy to Use
+- ✅ Multi-dimensional Fortune Guidance
+
+## 📖 How to Use
+1.  Go to the web interface: `https://fengshui-skill-api.vercel.app`
+2.  Input your birth date, gender and occasion
+3.  Click "Get My Lucky Style" to start analysis
+4.  View your personalized lucky color and dressing suggestions
+5.  Explore in-depth five elements and zodiac knowledge
+
+## ⚙️ Technical Details
+- API Endpoint: `/api/index.js`
+- Tech Stack: Node.js + Vercel
+- Core Logic: Traditional Chinese Five Elements & Zodiac Theory
+
+## 📄 License
+MIT License
