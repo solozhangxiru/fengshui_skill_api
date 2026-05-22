@@ -1,10 +1,10 @@
 {
-  "name": "五行生肖穿搭",
-  "description": "根据生日测算生肖、星座、五行，推荐专属开运穿搭与幸运色，超准命理工具",
+  "name": "Wuxing Zodiac Fashion",
+  "description": "Analyze Chinese Zodiac & Five Elements to get your lucky colors, fashion style and daily luck guide.",
   "version": "1.0.0",
   "author": "solozhangxiru",
   "icon": "https://raw.githubusercontent.com/solozhangxiru/fengshui_skill_api/main/%E5%A4%B4%E5%83%8F.png",
   "url": "https://fengshui-skill-api.vercel.app/",
-  "categories": ["生活", "命理", "工具"],
-  "tags": ["五行", "生肖", "穿搭", "开运", "运势", "命理", "星座"]
+  "categories": ["Lifestyle","Entertainment","Utilities"],
+  "tags": ["zodiac","wuxing","fortune","fashion","lucky","astrology"]
 }
