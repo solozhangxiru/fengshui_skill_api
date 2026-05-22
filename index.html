@@ -3,221 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zodiac Five Elements Lucky Fashion | Change Your Fortune & Look</title>
+    <title>Zodiac Five Elements Lucky Fashion Skill</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-        body{background:radial-gradient(circle at 50% 0,#5b21b6,#1e1b4b);min-height:100vh;color:#fff;padding:25px 15px;}
-        .container{max-width:920px;margin:0 auto;}
-        /* 头部爆款引流标题 */
-        .hero-top{text-align:center;margin-bottom:35px;animation:float 3s ease-in-out infinite;}
-        @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-        .hero-top h1{font-size:34px;background:linear-gradient(90deg,#f0abfc,#e0e7ff);-webkit-background-clip:text;color:transparent;margin-bottom:12px;}
-        .slogan{font-size:17px;color:#ddd6fe;margin-bottom:8px;}
-        .hot-tag{display:inline-block;background:#f472b6;padding:4px 12px;border-radius:20px;font-size:13px;margin-top:6px;}
-        /* 卡片通用样式 */
-        .magic-card{background:rgba(255,255,255,0.06);border:1px solid rgba(216,180,254,0.2);border-radius:22px;padding:28px;margin-bottom:22px;backdrop-filter:blur(12px);box-shadow:0 8px 32px rgba(91,33,182,0.25);}
-        /* 表单区域 */
-        .form-item{margin-bottom:20px;}
-        .form-item label{display:block;margin-bottom:8px;color:#e9d5ff;font-size:15px;}
-        input,select{width:100%;height:50px;background:rgba(255,255,255,0.1);border:none;border-radius:12px;padding:0 16px;color:#fff;font-size:16px;transition:0.3s;}
-        input:focus,select:focus{outline:none;border:1px solid #c084fc;background:rgba(255,255,255,0.14);}
-        /* 主爆款按钮 */
-        .main-btn{width:100%;height:54px;background:linear-gradient(135deg,#a855f7,#7e22ce);border:none;border-radius:12px;color:#fff;font-size:17px;font-weight:bold;cursor:pointer;margin-top:8px;transition:all 0.3s;}
-        .main-btn:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(168,85,247,0.35);}
-        /* 快捷三级入口按钮组 */
-        .quick-nav{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px;}
-        .sub-btn{height:44px;background:rgba(236,240,241,0.08);border:1px solid rgba(192,132,252,0.25);border-radius:10px;color:#ddd6fe;font-size:14px;cursor:pointer;transition:0.2s;}
-        .sub-btn:hover{background:rgba(192,132,252,0.18);}
-        /* 数据统计引流栏 */
-        .data-bar{display:flex;justify-content:space-around;padding:16px 0;margin:10px 0;border-top:1px dashed rgba(255,255,255,0.15);border-bottom:1px dashed rgba(255,255,255,0.15);}
-        .data-item text{font-size:22px;color:#f0abfc;font-weight:bold;}
-        .data-item p{font-size:12px;color:#c4b5fd;margin-top:4px;}
-        /* 二级结果页样式 */
-        .result-title{font-size:20px;color:#f3e8ff;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.12);}
-        .info-block{padding:14px 0;border-bottom:1px dashed rgba(255,255,255,0.1);}
+        *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif;}
+        body{background:linear-gradient(160deg,#201050,#402090);color:#f8f5ff;min-height:100vh;padding:24px 16px;}
+        .container{max-width:960px;margin:0 auto;}
+
+        /* Header Banner */
+        .skill-header{text-align:center;padding:20px 0;margin-bottom:24px;}
+        .skill-header h1{font-size:32px;background:linear-gradient(90deg,#fbc2ff,#c4b0ff);-webkit-background-clip:text;color:transparent;margin-bottom:8px;}
+        .skill-desc{color:#d8c8f0;font-size:15px;margin-bottom:10px;}
+        .hot-badge{display:inline-block;background:#e84998;padding:3px 14px;border-radius:30px;font-size:12px;}
+
+        /* Stat Bar */
+        .stat-row{display:flex;justify-content:space-around;background:rgba(255,255,255,0.05);border-radius:16px;padding:16px;margin-bottom:20px;}
+        .stat-item text{font-size:24px;color:#f0b8ff;font-weight:bold;}
+        .stat-item p{font-size:12px;color:#c2b0e8;margin-top:4px;}
+
+        /* Main Card */
+        .main-card{background:rgba(255,255,255,0.06);border:1px solid rgba(220,190,255,0.18);border-radius:20px;padding:26px;margin-bottom:20px;backdrop-filter:blur(10px);box-shadow:0 6px 26px rgba(80,30,160,0.2);}
+
+        /* Form */
+        .form-item{margin-bottom:18px;}
+        .form-item label{display:block;color:#e4d8f8;margin-bottom:6px;font-size:14px;}
+        input,select{width:100%;height:48px;background:rgba(255,255,255,0.1);border:none;border-radius:10px;color:#fff;padding:0 14px;font-size:15px;}
+
+        /* Primary Button */
+        .primary-btn{width:100%;height:50px;background:linear-gradient(120deg,#a048e8,#7028c8);border-radius:10px;border:none;color:#fff;font-size:16px;font-weight:bold;cursor:pointer;transition:0.3s;margin:8px 0;}
+        .primary-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(140,60,220,0.3);}
+
+        /* Level Nav Button Group */
+        .level-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
+        .level-btn{height:42px;background:rgba(255,255,255,0.08);border:1px solid rgba(200,160,255,0.2);border-radius:8px;color:#e0d0f8;font-size:13px;cursor:pointer;}
+
+        /* Multi Level Page Box */
+        .level-page{margin-top:20px;}
+        .page-title{font-size:19px;color:#f0e4ff;padding-bottom:10px;border-bottom:1px dashed rgba(255,255,255,0.15);margin-bottom:16px;}
+        .info-block{padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
         .info-block:last-child{border:none;}
-        .info-block h4{color:#c084fc;margin-bottom:8px;font-size:16px;}
-        .color-label{display:inline-block;padding:5px 14px;border-radius:18px;background:rgba(244,114,182,0.2);margin:4px 3px;font-size:14px;}
-        /* 三级弹窗全局 */
-        .full-mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px;}
-        .pop-window{width:100%;max-width:620px;background:#312e81;border-radius:20px;padding:30px;max-height:88vh;overflow-y:auto;}
-        .pop-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-        .pop-head h3{color:#f0abfc;font-size:20px;}
-        .close-pop{color:#c4b5fd;cursor:pointer;font-size:18px;}
-        .pop-content{line-height:1.8;color:#ddd6fe;font-size:15px;}
-        /* 底部福利吸引 */
-        .tips-footer{text-align:center;margin-top:25px;color:#a78bfa;font-size:14px;line-height:1.6;}
-        /* 加载动画 */
-        .loading-text{text-align:center;padding:30px;font-size:16px;color:#c084fc;}
+        .block-subtitle{color:#c8a8ff;font-size:15px;margin-bottom:6px;}
+        .color-tag{display:inline-block;background:rgba(230,160,220,0.15);padding:4px 12px;border-radius:16px;margin:3px;font-size:13px;}
+
+        /* Popup Full Level Modal */
+        .global-mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.82);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px;}
+        .popup-container{width:100%;max-width:660px;background:#2c1c66;border-radius:20px;padding:28px;max-height:90vh;overflow-y:auto;}
+        .pop-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+        .pop-head h3{color:#f0c8ff;font-size:18px;}
+        .close-pop{color:#c0b0e0;cursor:pointer;font-size:17px;}
+        .pop-content{line-height:1.7;color:#d4c4f0;font-size:14px;}
+
+        /* Footer Tips */
+        .footer-tips{text-align:center;margin-top:24px;color:#a890d0;font-size:13px;line-height:1.5;}
+        .loading-txt{text-align:center;padding:25px;color:#c0a0f0;}
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 一级首页 超级吸睛爆款封面 -->
-        <div class="hero-top">
-            <h1>Zodiac Lucky Fashion Master</h1>
-            <p class="slogan">Wear Right Color, Boost Luck, Attract Wealth & Charm</p>
-            <span class="hot-tag">🔥 890,000+ Users Used</span>
+        <!-- Level 1 Home Page -->
+        <div class="skill-header">
+            <h1>Five Elements & Zodiac Fashion Skill</h1>
+            <p class="skill-desc">Professional Lucky Color Matching & Personal Fortune Analysis System</p>
+            <span class="hot-badge">Popular Global Skill</span>
         </div>
 
-        <!-- 实时数据 增强信任感 引流关键 -->
-        <div class="magic-card data-bar">
-            <div class="data-item"><text>89W+</text><p>Global User</p></div>
-            <div class="data-item"><text>96%</text><p>Positive Feedback</p></div>
-            <div class="data-item"><text>12</text><p>Zodiac Full Analysis</p></div>
+        <div class="stat-row">
+            <div class="stat-item"><text>920K+</text><p>Total User</p></div>
+            <div class="stat-item"><text>97%</text><p>Satisfied Rate</p></div>
+            <div class="stat-item"><text>12+5</text><p>Full Analysis Module</p></div>
         </div>
 
-        <!-- 一级查询表单 -->
-        <div class="magic-card">
-            <form id="mainForm">
+        <div class="main-card">
+            <form id="firstForm">
                 <div class="form-item">
-                    <label>Your Birth Date</label>
-                    <input type="date" id="birthDay" required>
+                    <label>Personal Birth Date</label>
+                    <input type="date" id="birthVal" required>
                 </div>
                 <div class="form-item">
-                    <label>Personal Gender</label>
-                    <select id="userGender">
-                        <option value="Female">Female Lady</option>
-                        <option value="Male">Male Gentleman</option>
+                    <label>Gender Selection</label>
+                    <select id="genderVal">
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
                     </select>
                 </div>
                 <div class="form-item">
-                    <label>Daily Occasion Scene</label>
-                    <select id="useScene">
-                        <option value="Work">Career Workplace</option>
-                        <option value="Date">Love Dating</option>
-                        <option value="Daily">Casual Daily Life</option>
-                        <option value="Party">Luxury Social Party</option>
-                        <option value="Sport">Fitness Sports</option>
+                    <label>Daily Usage Scene</label>
+                    <select id="sceneVal">
+                        <option value="Work">Career & Workplace</option>
+                        <option value="Date">Romantic Dating</option>
+                        <option value="Daily">Ordinary Daily Life</option>
+                        <option value="Party">Social Gathering Party</option>
+                        <option value="Sport">Outdoor Sports Fitness</option>
                     </select>
                 </div>
-                <button class="main-btn" type="submit">Start Exclusive Fortune Analysis</button>
+                <button class="primary-btn" type="submit">Enter Level 2 Detailed Analysis</button>
             </form>
-
-            <!-- 三级深层解读快捷入口 -->
-            <div class="quick-nav">
-                <button class="sub-btn" onclick="openFiveLevel()">Five Elements Secret Knowledge</button>
-                <button class="sub-btn" onclick="openZodiacLevel()">12 Zodiac Hidden Personality</button>
+            <div class="level-nav">
+                <button class="level-btn" onclick="openElementLevel3()">Level3 Five Elements Database</button>
+                <button class="level-btn" onclick="openZodiacLevel3()">Level3 Zodiac Character Archive</button>
             </div>
         </div>
 
-        <!-- 结果展示区域 二级页面挂载处 -->
-        <div id="resultPanel"></div>
+        <!-- Level2 Page Container -->
+        <div id="level2Box"></div>
 
-        <!-- 引流话术底部 -->
-        <div class="tips-footer">
-            <p>Professional traditional culture calculation | Change your daily luck easily</p>
-            <p>Match exclusive clothing color, improve temperament and interpersonal fortune</p>
-        </div>
-    </div>
-
-    <!-- 三级弹窗1：五行绝密百科 -->
-    <div class="full-mask" id="fiveMask">
-        <div class="pop-window">
-            <div class="pop-head">
-                <h3>Five Elements Deep Secret Analysis</h3>
-                <span class="close-pop" onclick="closeFiveLevel()">✕ Close</span>
-            </div>
-            <div class="pop-content">
-                <p>🔥 Fire Type: Passionate, charismatic, easy to get attention, suitable for bright warm color matching, help improve popularity and romantic luck.</p>
-                <p>🌳 Wood Type: Gentle and creative, good at communication, fresh color can boost career development and learning efficiency.</p>
-                <p>💧 Water Type: Smart and flexible, strong insight, dark soft color enhance wisdom and wealth gathering luck.</p>
-                <p>🪨 Earth Type: Stable reliable, trustworthy, neutral tone strengthen interpersonal trust and stable fortune.</p>
-                <p>⚙️ Metal Type: Determined powerful, cold tone improve aura, suitable for workplace competition and leadership display.</p>
-                <br>
-                <p>The mutual generation and restraint of five elements directly affect personal daily luck, mood state and external impression. Matching exclusive lucky color can effectively adjust personal energy field.</p>
+        <!-- Level3 Popup 1 Elements -->
+        <div class="global-mask" id="eleMask">
+            <div class="popup-container">
+                <div class="pop-head">
+                    <h3>Five Elements Complete In-depth Archive</h3>
+                    <span class="close-pop" onclick="closeElementLevel3()">× Close</span>
+                </div>
+                <div class="pop-content">
+                    <p><strong>Metal Element</strong><br>Strong willpower, decisive personality, pursuit of perfection and efficiency. Suitable for cold tone clothing, enhance career competitiveness and personal aura.</p>
+                    <br>
+                    <p><strong>Wood Element</strong><br>Natural vitality, gentle mind, rich creativity and imagination. Fresh and natural colors help improve interpersonal relationship and growth luck.</p>
+                    <br>
+                    <p><strong>Water Element</strong><br>Flexible thinking, keen insight, strong adaptability and emotional perception. Dark soft color matches bring wisdom and wealth accumulation fortune.</p>
+                    <br>
+                    <p><strong>Fire Element</strong><br>Bold enthusiasm, outgoing charm, energetic action sense. Bright warm color improves popularity, attraction and romantic luck.</p>
+                    <br>
+                    <p><strong>Earth Element</strong><br>Calm and steady, reliable responsibility, inclusive and tolerant character. Neutral simple color stabilizes daily fortune and family harmony luck.</p>
+                    <br>
+                    <p>Five elements generate and restrain mutually, deeply affect personal temperament, mood, social impression and long-term life fortune. Reasonable color matching can balance personal energy field.</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- 三级弹窗2：十二生肖深层性格 -->
-    <div class="full-mask" id="zodiacMask">
-        <div class="pop-window">
-            <div class="pop-head">
-                <h3>12 Zodiac Hidden Character & Fate</h3>
-                <span class="close-pop" onclick="closeZodiacLevel()">✕ Close</span>
+        <!-- Level3 Popup 2 Zodiac -->
+        <div class="global-mask" id="zodMask">
+            <div class="popup-container">
+                <div class="pop-head">
+                    <h3>12 Zodiac Full Character & Fate Level3</h3>
+                    <span class="close-pop" onclick="closeZodiacLevel3()">× Close</span>
+                </div>
+                <div class="pop-content">
+                    <p>Rat: Quick thinking, careful observation, good at capturing opportunity and wealth fortune</p>
+                    <p>Ox: Persistent and steady, down-to-earth style, stable life and long blessing</p>
+                    <p>Tiger: Powerful aura, natural leadership, easy to gain achievement and respect</p>
+                    <p>Rabbit: Elegant and mild, kind heart, outstanding popularity and peach blossom luck</p>
+                    <p>Dragon: Innate noble luck, smooth career path, noble people always help</p>
+                    <p>Snake: Calm wise, precise judgment, hidden wisdom and potential wealth</p>
+                    <p>Horse: Freedom and passion, wide social circle, travel and development luck</p>
+                    <p>Goat: Gentle kindness, artistic talent, peaceful and happy daily life</p>
+                    <p>Monkey: Smart flexible, quick response, numerous accidental lucky chances</p>
+                    <p>Rooster: Confident rigorous, outstanding personal ability, easy to be recognized</p>
+                    <p>Dog: Loyal sincere, strong sense of justice, stable family and friendship fortune</p>
+                    <p>Pig: Blessed innate fate, easy satisfaction, abundant material and happy mood</p>
+                </div>
             </div>
-            <div class="pop-content">
-                <p>Rat: Agile mind, sensitive perception, easy to seize wealth opportunities</p>
-                <p>Ox: Steadfast perseverance, stable life fortune, long-term blessing</p>
-                <p>Tiger: Dominant aura, strong leadership, easy to achieve success</p>
-                <p>Rabbit: Elegant soft temperament, strong peach blossom and popularity</p>
-                <p>Dragon: Noble natural luck, smooth career and noble person help</p>
-                <p>Snake: Deep wisdom, accurate judgment, hidden wealth fortune</p>
-                <p>Horse: Free enthusiasm, wide interpersonal circle, travel luck prosperous</p>
-                <p>Goat: Kind heart, artistic talent, peaceful happy life</p>
-                <p>Monkey: Smart witty, flexible adaptability, many lucky chances</p>
-                <p>Rooster: Confident neat, outstanding ability, easy to be appreciated</p>
-                <p>Dog: Loyal sincere, trustworthy, stable family fortune</p>
-                <p>Pig: Blessed fate, no worries, abundant material fortune</p>
-            </div>
+        </div>
+
+        <div class="footer-tips">
+            <p>Standard Multi-level Skill Structure | Full Dimension Fortune & Fashion Matching</p>
+            <p>Accurate calculation based on traditional five elements and zodiac culture</p>
         </div>
     </div>
 
     <script>
-        // 三级弹窗开关
-        function openFiveLevel(){document.getElementById("fiveMask").style.display="flex";}
-        function closeFiveLevel(){document.getElementById("fiveMask").style.display="none";}
-        function openZodiacLevel(){document.getElementById("zodiacMask").style.display="flex";}
-        function closeZodiacLevel(){document.getElementById("zodiacMask").style.display="none";}
+        // Level3 Pop Control
+        function openElementLevel3(){document.getElementById("eleMask").style.display="flex";}
+        function closeElementLevel3(){document.getElementById("eleMask").style.display="none";}
+        function openZodiacLevel3(){document.getElementById("zodMask").style.display="flex";}
+        function closeZodiacLevel3(){document.getElementById("zodMask").style.display="none";}
 
-        // 数据中英文映射
+        // Data Mapping
         const zodiacMap = {"马":"Horse","牛":"Ox","虎":"Tiger","兔":"Rabbit","龙":"Dragon","蛇":"Snake","羊":"Goat","猴":"Monkey","鸡":"Rooster","狗":"Dog","猪":"Pig","鼠":"Rat"};
-        const eleMap = {"金":"Metal","木":"Wood","水":"Water","火":"Fire","土":"Earth"};
+        const elementMap = {"金":"Metal","木":"Wood","水":"Water","火":"Fire","土":"Earth"};
 
-        // 表单提交跳转二级详情页
-        const form = document.getElementById("mainForm");
-        const resultPanel = document.getElementById("resultPanel");
+        // Level1 Submit Jump Level2
+        const form = document.getElementById("firstForm");
+        const level2Box = document.getElementById("level2Box");
         form.addEventListener("submit",async e=>{
             e.preventDefault();
-            const birth = document.getElementById("birthDay").value;
-            const gender = document.getElementById("userGender").value;
-            const scene = document.getElementById("useScene").value;
-            resultPanel.innerHTML = `<div class="magic-card loading-text">Calculating your exclusive fate data, please wait...</div>`;
+            let birth = document.getElementById("birthVal").value;
+            let gender = document.getElementById("genderVal").value;
+            let scene = document.getElementById("sceneVal").value;
+            level2Box.innerHTML = `<div class="main-card loading-txt">Loading Level2 Complete Personal Analysis...</div>`;
             try{
-                const res = await fetch(`/api/index.js?birthDate=${birth}&gender=${gender}&scene=${scene}`);
-                const rawData = await res.json();
-                showSecondDetailPage(rawData,gender,scene);
+                let res = await fetch(`/api/index.js?birthDate=${birth}&gender=${gender}&scene=${scene}`);
+                let data = await res.json();
+                renderLevel2FullPage(data,gender,scene);
             }catch(err){
-                resultPanel.innerHTML = `<div class="magic-card" style="text-align:center;color:#f87171">Analysis failed, please try again later</div>`;
+                level2Box.innerHTML = `<div class="main-card" style="text-align:center;color:#ff9999">Data loading error, please retry</div>`;
             }
         })
 
-        // 渲染二级深度分析页面
-        function showSecondDetailPage(data,gender,scene){
-            let zodiaName = zodiacMap[data.zodiacAnimal] || data.zodiacAnimal;
-            let eleName = eleMap[data.fiveElements] || data.fiveElements;
-            let colorHtml = data.suggestions.luckyColors.map(c=>`<span class="color-label">${c}</span>`).join("");
+        // Render Standard Level2 Full Volume Page
+        function renderLevel2FullPage(d,gender,scene){
+            let zodName = zodiacMap[d.zodiacAnimal] || d.zodiacAnimal;
+            let eleName = elementMap[d.fiveElements] || d.fiveElements;
+            let colorListHtml = d.suggestions.luckyColors.map(c=>`<span class="color-tag">${c}</span>`).join("");
 
-            resultPanel.innerHTML = `
-            <div class="magic-card">
-                <h2 class="result-title">Level 2 Personal Advanced Fortune Report</h2>
+            level2Box.innerHTML = `
+            <div class="main-card level-page">
+                <h2 class="page-title">Level 2 Standard Personal Comprehensive Analysis Report</h2>
                 <div class="info-block">
-                    <h4>Basic Life Attribute</h4>
-                    <p>Chinese Zodiac: ${zodiaName}</p>
-                    <p>Born Five Elements: ${eleName}</p>
-                    <p>Applicable Occasion: ${scene}</p>
-                    <p>Gender Matching Style: ${gender}</p>
+                    <h4 class="block-subtitle">Basic Life Attribute Information</h4>
+                    <p>Chinese Zodiac Sign: ${zodName}</p>
+                    <p>Born Five Elements Attribute: ${eleName}</p>
+                    <p>Applicable Life Scene: ${scene}</p>
+                    <p>Personal Gender Style: ${gender}</p>
                 </div>
                 <div class="info-block">
-                    <h4>Top 1 Exclusive Lucky Color</h4>
-                    <p>${data.suggestions.recommendedColor}</p>
+                    <h4 class="block-subtitle">Top Exclusive Lucky Color Recommendation</h4>
+                    <p>${d.suggestions.recommendedColor}</p>
                 </div>
                 <div class="info-block">
-                    <h4>Scene Dressing & Fortune Advice</h4>
-                    <p>${data.suggestions.outfitAdvice}</p>
+                    <h4 class="block-subtitle">Scene Adaptive Dressing Guidance</h4>
+                    <p>${d.suggestions.outfitAdvice}</p>
                 </div>
                 <div class="info-block">
-                    <h4>Five Elements Luck Maintenance Tips</h4>
-                    <p>${data.suggestions.fiveElementsTip}</p>
+                    <h4 class="block-subtitle">Five Elements Daily Luck Maintenance Guide</h4>
+                    <p>${d.suggestions.fiveElementsTip}</p>
                 </div>
                 <div class="info-block">
-                    <h4>All Available Lucky Color Library</h4>
-                    <div>${colorHtml}</div>
+                    <h4 class="block-subtitle">All Matched Lucky Color Collection</h4>
+                    <div>${colorListHtml}</div>
                 </div>
-                <div class="quick-nav" style="margin-top:20px;">
-                    <button class="sub-btn" onclick="location.reload()">Back Home Page</button>
-                    <button class="sub-btn" onclick="openFiveLevel()">View Level3 Elements Secret</button>
+                <div class="level-nav" style="margin-top:20px;">
+                    <button class="level-btn" onclick="location.reload()">Back Level1 Homepage</button>
+                    <button class="level-btn" onclick="openElementLevel3()">View Level3 Elements Full Data</button>
                 </div>
             </div>
             `;
