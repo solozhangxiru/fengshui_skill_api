@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>五行星座穿搭 API</title>
+    <title>十二生肖·五行穿搭 API</title>
     <style>
         * {
             margin: 0;
@@ -12,26 +12,50 @@
             font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
         }
         body {
-            background: linear-gradient(135deg, #f5e6d3 0%, #e8d4b8 100%);
+            /* 星空紫+鎏金渐变背景，还原图片质感 */
+            background: linear-gradient(135deg, #1a0f2e 0%, #2d1b4e 50%, #1a0f2e 100%);
             min-height: 100vh;
             padding: 40px 20px;
-            color: #3a2b1f;
+            color: #fff;
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* 模拟星空效果 */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 60px 70px, #ffd700, transparent),
+                radial-gradient(1px 1px at 50px 50px, #fff, transparent),
+                radial-gradient(1px 1px at 130px 80px, #ffd700, transparent),
+                radial-gradient(2px 2px at 90px 10px, #fff, transparent);
+            background-size: 200px 200px;
+            opacity: 0.5;
+            pointer-events: none;
         }
         .container {
             max-width: 700px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(26, 15, 46, 0.85);
             border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 8px 32px rgba(139, 90, 43, 0.15);
-            border: 1px solid rgba(139, 90, 43, 0.2);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 1;
         }
         h1 {
             text-align: center;
-            color: #8b5a2b;
+            color: #ffd700;
             margin-bottom: 30px;
             font-size: 28px;
             letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
         .form-group {
             margin-bottom: 20px;
@@ -40,63 +64,64 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: #5a4535;
+            color: #e6e6e6;
         }
         input, select {
             width: 100%;
             padding: 12px 15px;
-            border: 1px solid #d4b89a;
+            border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 8px;
             font-size: 16px;
-            background: #fffaf5;
-            color: #3a2b1f;
+            background: rgba(45, 27, 78, 0.8);
+            color: #fff;
         }
         button {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, #8b5a2b 0%, #a67c52 100%);
-            color: white;
+            background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+            color: #1a0f2e;
             border: none;
             border-radius: 8px;
             font-size: 18px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(139, 90, 43, 0.2);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
         }
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(139, 90, 43, 0.3);
+            box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5);
         }
         #result {
             margin-top: 30px;
             padding: 20px;
-            background: rgba(245, 230, 211, 0.6);
+            background: rgba(45, 27, 78, 0.6);
             border-radius: 8px;
-            border-left: 4px solid #8b5a2b;
+            border-left: 4px solid #ffd700;
         }
         #result h3 {
-            color: #8b5a2b;
+            color: #ffd700;
             margin-bottom: 15px;
         }
         .result-item {
             margin-bottom: 10px;
             line-height: 1.6;
+            color: #e6e6e6;
         }
         .loading {
             text-align: center;
-            color: #8b5a2b;
+            color: #ffd700;
             font-style: italic;
         }
         .error {
-            color: #d9534f;
+            color: #ff6b6b;
             text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>五行星座穿搭 API</h1>
+        <h1>✨ 十二生肖·五行穿搭 ✨</h1>
         
         <div class="form-group">
             <label for="birthDate">生日（YYYY-MM-DD）</label>
@@ -125,10 +150,10 @@
 
         <div class="form-group">
             <label for="colorPreference">偏好颜色（可选）</label>
-            <input type="text" id="colorPreference" placeholder="如：红色、蓝色">
+            <input type="text" id="colorPreference" placeholder="如：赤金红、深海蓝">
         </div>
 
-        <button onclick="getStyleSuggestion()">获取穿搭建议</button>
+        <button onclick="getStyleSuggestion()">点亮你的专属星光穿搭</button>
 
         <div id="result"></div>
     </div>
@@ -148,7 +173,7 @@
                 return;
             }
 
-            resultDiv.innerHTML = `<p class="loading">正在计算星座与五行搭配...</p>`;
+            resultDiv.innerHTML = `<p class="loading">正在点亮你的生肖星光运势...</p>`;
 
             const params = new URLSearchParams({
                 birthDate,
@@ -159,20 +184,23 @@
 
             try {
                 const response = await fetch(`${API_URL}?${params}`);
-            if (!response.ok) throw new Error("请求失败");
-            const data = await response.json();
+                if (!response.ok) throw new Error("请求失败");
+                const data = await response.json();
 
-            resultDiv.innerHTML = `
-                <h3>✨ 你的专属穿搭建议</h3>
-                <div class="result-item"><strong>星座：</strong>${data.zodiac}</div>
-                <div class="result-item"><strong>五行属性：</strong>${data.fiveElements}</div>
-                <div class="result-item"><strong>推荐颜色：</strong>${data.suggestions.recommendedColor}</div>
-                <div class="result-item"><strong>穿搭建议：</strong>${data.suggestions.outfitAdvice}</div>
-                <div class="result-item"><strong>五行运势提升：</strong>${data.suggestions.fiveElementsTip}</div>
-                <div class="result-item"><strong>幸运色列表：</strong>${data.suggestions.luckyColors.join('、')}</div>
-            `;
-        } catch (error) {
-            resultDiv.innerHTML = `<p class="error">获取建议失败：${error.message}</p>`;
+                resultDiv.innerHTML = `
+                    <h3>✨ 你的专属星光穿搭</h3>
+                    <div class="result-item"><strong>生肖：</strong>${data.zodiacAnimal}</div>
+                    <div class="result-item"><strong>星座：</strong>${data.zodiacSign}</div>
+                    <div class="result-item"><strong>五行属性：</strong>${data.fiveElements}</div>
+                    <div class="result-item"><strong>推荐颜色：</strong>${data.suggestions.recommendedColor}</div>
+                    <div class="result-item"><strong>穿搭建议：</strong>${data.suggestions.outfitAdvice}</div>
+                    <div class="result-item"><strong>星光运势提升：</strong>${data.suggestions.fiveElementsTip}</div>
+                    <div class="result-item"><strong>专属幸运色：</strong>${data.suggestions.luckyColors.join('、')}</div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `<p class="error">获取建议失败：${error.message}</p>`;
+            }
         }
-    }
-</script>
+    </script>
+</body>
+</html>
