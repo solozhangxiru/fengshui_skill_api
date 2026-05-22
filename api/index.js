@@ -1,91 +1,66 @@
-export default function handler(req, res) {
-  // 允许跨域请求
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+import fs from 'fs';
+import path from 'path';
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  if (req.method !== 'GET') {
-    return res.status(405).json({ error: "只支持GET请求" });
+  const { birthday, gender, scene } = req.body;
+
+  if (!birthday || !gender) {
+    return res.status(400).json({ error: '请提供生日和性别' });
   }
 
-  // 从URL参数中获取用户信息
-  const { birthDate, gender, scene, colorPreference } = req.query;
+  // ==================== 高端女娲风格 Master Prompt ====================
+  const masterPrompt = `
+你是一位极具艺术感的东方能量时尚大师，风格如同女娲补天，融合古风优雅与现代时尚，输出充满仪式感、神秘感和强大赋能力量。
 
-  if (!birthDate || !gender || !scene) {
-    return res.status(400).json({ error: "缺少必要参数：birthDate、gender、scene" });
-  }
+用户信息：
+出生日期：${birthday}
+性别：${gender}
+场合：${scene || '日常'}
 
-  // 简单的星座与五行逻辑（你可以在这里扩展）
-  const zodiac = getZodiacSign(birthDate);
-  const fiveElements = getFiveElements(zodiac);
+请用极致优雅、诗意、温暖有力的语气，用丰富 Markdown 格式输出一份高端、像艺术海报一样的报告：
 
-  // 场景搭配建议
-  const suggestions = getOutfitSuggestions(zodiac, fiveElements, gender, scene, colorPreference);
+---
 
-  res.status(200).json({
-    zodiac,
-    fiveElements,
-    suggestions
-  });
-}
+**🌟 五行能量穿搭报告**
 
-// 计算星座
-function getZodiacSign(birthDateStr) {
-  const date = new Date(birthDateStr);
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
+**女娲为你悄然补天 · 今日气场指引**
 
-  if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return "水瓶座";
-  if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) return "双鱼座";
-  if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return "白羊座";
-  if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return "金牛座";
-  if ((month === 5 && day >= 21) || (month === 6 && day <= 21)) return "双子座";
-  if ((month === 6 && day >= 22) || (month === 7 && day <= 22)) return "巨蟹座";
-  if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return "狮子座";
-  if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return "处女座";
-  if ((month === 9 && day >= 23) || (month === 10 && day <= 23)) return "天秤座";
-  if ((month === 10 && day >= 24) || (month === 11 && day <= 22)) return "天蝎座";
-  if ((month === 11 && day >= 23) || (month === 12 && day <= 21)) return "射手座";
-  return "摩羯座";
-}
+**一、能量速览**
+（简短而有画面感的描述，包括生肖特性和当前五行状态）
 
-// 星座对应五行
-function getFiveElements(zodiac) {
-  const map = {
-    "白羊座": "火", "狮子座": "火", "射手座": "火",
-    "金牛座": "土", "处女座": "土", "摩羯座": "土",
-    "双子座": "风", "天秤座": "风", "水瓶座": "风",
-    "巨蟹座": "水", "天蝎座": "水", "双鱼座": "水"
-  };
-  return map[zodiac] || "土";
-}
+**二、本命喜用神**
+（清晰说明最需要补的元素，以及原因）
 
-// 场景搭配建议（可根据你的需求扩展）
-function getOutfitSuggestions(zodiac, fiveElements, gender, scene, colorPref) {
-  const colorMap = {
-    "火": ["红色", "橙色", "亮黄色"],
-    "土": ["棕色", "卡其色", "米白色"],
-    "风": ["浅蓝色", "绿色", "银色"],
-    "水": ["深蓝色", "黑色", "白色"]
+**三、今日能量穿搭推荐**
+- **主色调**：xxx（并说明五行原因）
+- **辅色**：xxx
+- **忌色**：xxx
+- **完整搭配建议**（上衣、下装、外套、鞋子、包包，适合${scene || '日常'}场合，要具体、有画面感）
+
+**四、饰品加持**
+推荐 2-3 件具体饰品（手串、水晶、项链、耳环等），说明对应五行和加持作用，要有仪式感。
+
+**五、女娲祝福与气场效果**
+（诗意描述穿上后的能量变化 + 一句温暖有力的祝福）
+
+---
+
+输出要求：
+- 语言要有美感、仪式感和力量
+- 多使用“为你补足XXX能量”、“气场悄然提升”、“如女娲补天般”等表达
+- 全部用中文输出
+- 格式美观，适合直接发给客户
+`;
+
+  const advice = {
+    success: true,
+    report: masterPrompt,
+    note: "此版本为模板Prompt，后续可接入大模型生成动态内容"
   };
 
-  const baseColors = colorMap[fiveElements];
-  const preferredColor = colorPref || baseColors[0];
-
-  const sceneSuggestions = {
-    "职场": `建议选择${preferredColor}系职业套装，搭配简约配饰，凸显干练气质。`,
-    "约会": `推荐${preferredColor}系温柔风穿搭，搭配小细节设计，提升亲和力。`,
-    "日常": `适合${preferredColor}系休闲舒适款，兼顾舒适与时尚感。`,
-    "正式场合": `选择${preferredColor}系正式礼服，搭配质感配饰，彰显品味。`
-  };
-
-  return {
-    recommendedColor: preferredColor,
-    outfitAdvice: sceneSuggestions[scene] || `适合${preferredColor}系穿搭，适配多种场景。`,
-    fiveElementsTip: `${fiveElements}属性的你，搭配${baseColors.join('、')}色系更能提升运势。`
-  };
+  res.status(200).json(advice);
 }
