@@ -1,177 +1,160 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>五行生肖穿搭命理Skill | 开源AI测算工具</title>
-<link rel="icon" type="image/png" href="https://github.com/solozhangxiru/fengshui_skill_api/blob/main/%E5%A4%B4%E5%83%8F.png?raw=true">
+    <title>Wuxing Zodiac Fashion - Lucky Style & Fortune</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/solozhangxiru/fengshui_skill_api/main/%E5%A4%B4%E5%83%8F.png">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",sans-serif}
-        body{background:linear-gradient(145deg,#080418,#170d33,#080418);min-height:100vh;color:#f0e8ff;position:relative;overflow-x:hidden;padding:20px 15px}
-        .star-bg{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
-        .star{position:absolute;background:#fff;border-radius:50%;animation:twinkle 3s infinite ease-in-out}
-        @keyframes twinkle{0%,100%{opacity:0.2}50%{opacity:0.9}}
-        .container{max-width:750px;margin:0 auto;position:relative;z-index:1}
-        .head-banner{background:rgba(22,12,48,0.92);border:1px solid rgba(255,210,80,0.35);border-radius:20px;padding:30px 25px;text-align:center;margin-bottom:25px;box-shadow:0 0 40px rgba(255,210,80,0.12)}
-        .head-banner h1{color:#ffd250;font-size:28px;margin-bottom:12px;text-shadow:0 0 12px rgba(255,210,80,0.4)}
-        .head-banner .desc{color:#d8c8f0;font-size:15px;line-height:1.7}
-        .data-card{display:flex;justify-content:center;gap:20px;margin:20px 0;flex-wrap:wrap}
-        .data-item{background:rgba(35,22,68,0.8);padding:12px 20px;border-radius:12px;border:1px solid rgba(255,210,80,0.25)}
-        .data-num{color:#ffd250;font-size:22px;font-weight:bold}
-        .data-text{font-size:13px;color:#c9b8e8}
-        .module-card{background:rgba(22,12,48,0.9);border:1px solid rgba(255,210,80,0.25);border-radius:18px;padding:25px;margin-bottom:22px}
-        .module-title{color:#ffd250;font-size:19px;margin-bottom:18px;display:flex;align-items:center;gap:8px}
-        .form-item{margin-bottom:16px}
-        label{display:block;margin-bottom:7px;color:#e2d4f5;font-size:14px}
-        input,select{width:100%;padding:13px;border-radius:10px;border:1px solid rgba(255,210,80,0.3);background:rgba(35,22,68,0.75);color:#fff;font-size:15px}
-        .btn-sub{width:100%;padding:14px;background:linear-gradient(120deg,#ffd250,#ffaa33);color:#170d33;border:none;border-radius:10px;font-size:16px;font-weight:bold;cursor:pointer;transition:0.3s;margin-top:8px}
-        .btn-sub:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(255,210,80,0.3)}
-        .result-box{margin-top:20px;padding:18px;background:rgba(35,22,68,0.6);border-radius:10px;border-left:4px solid #ffd250}
-        .result-line{margin:9px 0;line-height:1.7;color:#e8e0f8}
-        table{width:100%;border-collapse:collapse;margin-top:10px}
-        th,td{border:1px solid rgba(255,210,80,0.2);padding:9px;text-align:center;font-size:14px}
-        th{color:#ffd250}
-        .faq-item{margin:12px 0;padding:10px;border-bottom:1px dashed rgba(255,210,80,0.18)}
-        .faq-q{color:#ffd250;margin-bottom:5px}
-        .faq-a{color:#d8c8f0;font-size:14px}
-        .footer-info{text-align:center;margin-top:35px;padding:15px;font-size:13px;color:#a898d0;line-height:1.6}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a103f, #2c1a5f, #4a2a8f);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #f0e6ff;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .form-box {
+            background: rgba(255,255,255,0.08);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            font-size: 16px;
+        }
+
+        button {
+            background: linear-gradient(90deg, #9d50ff, #7a3dd9);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .result {
+            background: rgba(255,255,255,0.07);
+            padding: 25px;
+            border-radius: 14px;
+            text-align: left;
+            line-height: 1.7;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin: 30px 0 15px;
+        }
+
+        .info-table {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-    <div class="star-bg" id="starBg"></div>
     <div class="container">
-        <div class="head-banner">
-            <h1>五行生肖穿搭命理Skill</h1>
-            <p class="desc">开源AI测算工具 | 融合生肖星座五行命理<br>定制专属穿搭风格，测算每日开运运势，免费永久使用</p>
-            <div class="data-card">
-                <div class="data-item"><div class="data-num">2.3W+</div><div class="data-text">累计测算次数</div></div>
-                <div class="data-item"><div class="data-num">12</div><div class="data-text">全生肖覆盖</div></div>
-                <div class="data-item"><div class="data-num">7</div><div class="data-text">日常场景适配</div></div>
-            </div>
-        </div>
+        <img class="logo" src="https://raw.githubusercontent.com/solozhangxiru/fengshui_skill_api/main/%E5%A4%B4%E5%83%8F.png" alt="Logo">
+        <h1>Wuxing Zodiac Fashion</h1>
+        <p class="subtitle">Your Lucky Color & Best Fashion Style Advisor</p>
 
-        <div class="module-card">
-            <div class="module-title">🔮 专属命理穿搭测算</div>
-            <div class="form-item">
-                <label>出生年月日</label>
-                <input type="date" id="birthDay" value="1995-08-15">
+        <div class="form-box">
+            <div class="form-group">
+                <label>Your Birthday (YYYY-MM-DD)</label>
+                <input type="date" id="birthDate">
             </div>
-            <div class="form-item">
-                <label>性别选择</label>
-                <select id="userSex">
-                    <option value="女">女性</option>
-                    <option value="男">男性</option>
+            <div class="form-group">
+                <label>Gender</label>
+                <select id="gender">
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
                 </select>
             </div>
-            <div class="form-item">
-                <label>使用场景</label>
-                <select id="useScene">
-                    <option value="职场">职场办公</option>
-                    <option value="约会">休闲约会</option>
-                    <option value="日常">居家日常</option>
-                    <option value="正式场合">商务正式</option>
-                    <option value="运动">户外运动</option>
-                    <option value="派对">聚会派对</option>
-                    <option value="节日">节日出行</option>
+            <div class="form-group">
+                <label>Scene</label>
+                <select id="scene">
+                    <option value="work">Work</option>
+                    <option value="date">Date</option>
+                    <option value="casual">Casual</option>
+                    <option value="party">Party</option>
+                    <option value="sport">Sport</option>
+                    <option value="formal">Formal</option>
+                    <option value="festival">Festival</option>
                 </select>
             </div>
-            <div class="form-item">
-                <label>个人偏好颜色(选填)</label>
-                <input type="text" id="likeColor" placeholder="例如：赤金红、深海蓝">
-            </div>
-            <button class="btn-sub" onclick="calcStyle()">立即测算开运穿搭</button>
-            <div id="resultArea" class="result-box"></div>
+            <button>Get My Lucky Style</button>
         </div>
 
-        <div class="module-card">
-            <div class="module-title">📖 十二生肖五行速查手册</div>
-            <table>
-                <tr><th>生肖</th><th>对应五行</th><th>核心幸运色</th></tr>
-                <tr><td>鼠</td><td>水</td><td>藏青、纯白、鎏金</td></tr>
-                <tr><td>牛</td><td>土</td><td>焦糖、暖黄、暗红</td></tr>
-                <tr><td>虎</td><td>木</td><td>青绿、墨绿、浅蓝</td></tr>
-                <tr><td>兔</td><td>木</td><td>薄荷绿、柔粉、青蓝</td></tr>
-                <tr><td>龙</td><td>土</td><td>琥珀、金黄、枣红</td></tr>
-                <tr><td>蛇</td><td>火</td><td>赤红、紫金、暖橙</td></tr>
-                <tr><td>马</td><td>火</td><td>烈焰红、香槟金</td></tr>
-                <tr><td>羊</td><td>土</td><td>驼色、米黄、绛紫</td></tr>
-                <tr><td>猴</td><td>金</td><td>白银、米金、浅咖</td></tr>
-                <tr><td>鸡</td><td>金</td><td>亮白、鎏金、浅黄</td></tr>
-                <tr><td>狗</td><td>土</td><td>土黄、棕红、暗金</td></tr>
-                <tr><td>猪</td><td>水</td><td>墨蓝、玄黑、珍珠白</td></tr>
-            </table>
+        <div class="result" id="result" style="display:none;">
+            <h3>Your Result</h3>
+            <p>Zodiac: <span id="zodiac"></span></p>
+            <p>Element (Wuxing): <span id="wuxing"></span></p>
+            <p>Lucky Color: <span id="color"></span></p>
+            <p>Best Style: <span id="style"></span></p>
         </div>
 
-        <div class="module-card">
-            <div class="module-title">❓ 常见使用问题</div>
-            <div class="faq-item">
-                <div class="faq-q">工具使用收费吗？</div>
-                <div class="faq-a">全程免费开源，无隐藏扣费，个人与非商用均可自由使用</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">测算结果可以参考穿搭吗？</div>
-                <div class="faq-a">基于传统民俗五行文化生成穿搭建议，仅供风格参考娱乐</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">支持AI客户端安装使用吗？</div>
-                <div class="faq-a">已适配标准Skill格式，可一键安装至主流AI助手客户端</div>
-            </div>
-        </div>
-
-        <div class="footer-info">
-            五行生肖穿搭命理Skill V1.0 开源项目<br>
-            对标AI Skill生态打造 | 致力打造高口碑命理测算工具<br>
-            民俗文化仅供娱乐，生活运势依托自身努力
+        <h2 class="section-title">About This Skill</h2>
+        <div class="info-table">
+            <p>✅ Analyze Zodiac & Five Elements</p>
+            <p>✅ Personal Lucky Color</p>
+            <p>✅ Fashion Style for Every Scene</p>
+            <p>✅ 100% Free & Easy to Use</p>
         </div>
     </div>
-
-    <script>
-        function createStar(){
-            const bg=document.getElementById("starBg");
-            for(let i=0;i<180;i++){
-                let star=document.createElement("div");
-                star.className="star";
-                star.style.left=Math.random()*100+"%";
-                star.style.top=Math.random()*100+"%";
-                let s=Math.random()*2.5+0.5;
-                star.style.width=s+"px";
-                star.style.height=s+"px";
-                star.style.animationDelay=Math.random()*2+"s";
-                bg.appendChild(star);
-            }
-        }
-        createStar();
-
-        const apiUrl="https://fengshui-skill-api.vercel.app/api/index.js";
-        async function calcStyle(){
-            let birth=document.getElementById("birthDay").value;
-            let sex=document.getElementById("userSex").value;
-            let scene=document.getElementById("useScene").value;
-            let color=document.getElementById("likeColor").value;
-            let resDom=document.getElementById("resultArea");
-            if(!birth||!sex||!scene){
-                resDom.innerHTML="<div class='result-line' style='color:#ff7777'>请完善必填信息后再测算</div>";
-                return;
-            }
-            resDom.innerHTML="<div class='result-line'>正在解析命理数据，请稍候...</div>";
-            let params=new URLSearchParams({birthDate:birth,gender:sex,scene:scene,colorPreference:color});
-            try{
-                let resp=await fetch(`${apiUrl}?${params}`);
-                if(!resp.ok)throw new Error("接口请求异常");
-                let data=await resp.json();
-                resDom.innerHTML=`
-                    <div class="result-line"><strong>对应生肖：</strong>${data.zodiacAnimal}</div>
-                    <div class="result-line"><strong>本命星座：</strong>${data.zodiacSign}</div>
-                    <div class="result-line"><strong>核心五行属性：</strong>${data.fiveElements}</div>
-                    <div class="result-line"><strong>场景推荐穿搭色：</strong>${data.suggestions.recommendedColor}</div>
-                    <div class="result-line"><strong>专属穿搭方案：</strong>${data.suggestions.outfitAdvice}</div>
-                    <div class="result-line"><strong>五行开运小贴士：</strong>${data.suggestions.fiveElementsTip}</div>
-                    <div class="result-line"><strong>全套专属幸运色：</strong>${data.suggestions.luckyColors.join("、")}</div>
-                `;
-            }catch(err){
-                resDom.innerHTML=`<div class='result-line' style='color:#ff7777'>测算失败：${err.message}</div>`;
-            }
-        }
-    </script>
 </body>
 </html>
