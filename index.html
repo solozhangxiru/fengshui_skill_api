@@ -106,11 +106,11 @@
         <!-- Level2 Page Container -->
         <div id="level2Box"></div>
 
-        <!-- Level3 Popup 1 Elements (通用百科) -->
+        <!-- Level3 Popup 1 通用五行百科（不变） -->
         <div class="global-mask" id="eleMask">
             <div class="popup-container">
                 <div class="pop-head">
-                    <h3>Five Elements Complete In-depth Archive</h3>
+                    <h3>Five Elements Complete Encyclopedia</h3>
                     <span class="close-pop" onclick="closeElementLevel3()">× Close</span>
                 </div>
                 <div class="pop-content">
@@ -129,7 +129,7 @@
             </div>
         </div>
 
-        <!-- Level3 Popup 2 Zodiac -->
+        <!-- Level3 Popup 2 生肖解读（不变） -->
         <div class="global-mask" id="zodMask">
             <div class="popup-container">
                 <div class="pop-head">
@@ -153,15 +153,15 @@
             </div>
         </div>
 
-        <!-- Level3 Popup 3 专属五行指南 -->
+        <!-- Level3 Popup 3 专属五行指南（内容全新重写） -->
         <div class="global-mask" id="personalEleMask">
             <div class="popup-container">
                 <div class="pop-head">
-                    <h3>Your Exclusive Five Elements Guide</h3>
+                    <h3>Your Exclusive Five Elements Deep Guide</h3>
                     <span class="close-pop" onclick="closePersonalEleMask()">× Close</span>
                 </div>
                 <div class="pop-content" id="personalEleContent">
-                    <!-- 这里的内容会根据你的五行属性动态生成 -->
+                    <!-- 内容会根据你的五行属性动态生成 -->
                 </div>
             </div>
         </div>
@@ -181,42 +181,47 @@
         function openPersonalEleMask(){document.getElementById("personalEleMask").style.display="flex";}
         function closePersonalEleMask(){document.getElementById("personalEleMask").style.display="none";}
 
-        // 五行专属解读数据
-        const elementGuideMap = {
+        // 专属五行解读（和通用版话术完全不同）
+        const elementExclusiveGuide = {
             "Metal": `
-                <p><strong>Your Element: Metal</strong></p>
-                <p>Core Traits: Determined, strong-willed, disciplined, and perfection-seeking.</p>
-                <p>Fashion Tips: Choose cool tones like silver, gray, white, and metallic colors to enhance your aura and competitiveness. Avoid overly soft or warm colors that may weaken your energy.</p>
-                <p>Lucky Symbols: Sharp geometric patterns, metal accessories, and structured silhouettes.</p>
-                <p>Fortune Boost: Metal energy is strong in autumn. Wearing metal-toned clothes during this season can amplify your career luck and decision-making power.</p>
+                <p><strong>🔹 Your Element: Metal</strong></p>
+                <p>Core Traits: Determined, disciplined, and naturally authoritative. You thrive on clarity, structure, and results.</p>
+                <p>Style Power Colors: Silver, charcoal gray, crisp white, and cool metallic tones. These enhance your focus and command in the workplace.</p>
+                <p>Avoid Colors: Overly soft pastels or overly loud chaotic patterns that can weaken your decisive energy.</p>
+                <p>Pro Tip: Wearing structured fabrics (wool, linen blends) with clean lines amplifies your natural leadership aura.</p>
+                <p>Best Occasion: Work meetings, presentations, and high-pressure environments.</p>
             `,
             "Wood": `
-                <p><strong>Your Element: Wood</strong></p>
-                <p>Core Traits: Creative, growth-oriented, flexible, and full of vitality.</p>
-                <p>Fashion Tips: Fresh natural colors like green, light blue, and beige suit you best. These colors boost your creativity and interpersonal charm.</p>
-                <p>Lucky Symbols: Floral prints, plant patterns, and loose, flowing fabrics.</p>
-                <p>Fortune Boost: Wood energy peaks in spring. Wearing wood-toned clothes can help you seize new opportunities and grow in your career.</p>
+                <p><strong>🔹 Your Element: Wood</strong></p>
+                <p>Core Traits: Creative, growth-oriented, and deeply empathetic. You bring new ideas and energy to every situation.</p>
+                <p>Style Power Colors: Sage green, sky blue, and warm beige. These boost your creativity and interpersonal charm.</p>
+                <p>Avoid Colors: Dark, heavy black or overly sharp, high-contrast patterns that can dampen your natural vibrancy.</p>
+                <p>Pro Tip: Loose, flowing silhouettes (linen, cotton) with organic prints complement your adaptable nature.</p>
+                <p>Best Occasion: Brainstorming sessions, team collaboration, and social gatherings.</p>
             `,
             "Water": `
-                <p><strong>Your Element: Water</strong></p>
-                <p>Core Traits: Intuitive, adaptable, empathetic, and wise.</p>
-                <p>Fashion Tips: Deep blue, black, and soft purple colors enhance your wisdom and emotional perception. These colors also help you attract wealth and opportunities.</p>
-                <p>Lucky Symbols: Wave patterns, water-themed prints, and fluid fabrics like silk.</p>
-                <p>Fortune Boost: Water energy is strongest in winter. Wearing water-toned clothes can help you stay calm and make wise decisions.</p>
+                <p><strong>🔹 Your Element: Water</strong></p>
+                <p>Core Traits: Intuitive, adaptable, and emotionally intelligent. You read people and situations effortlessly.</p>
+                <p>Style Power Colors: Deep navy, soft indigo, and muted purple. These enhance your calm and intuitive energy.</p>
+                <p>Avoid Colors: Harsh, jarring neon tones or overly bright primary colors that can overstimulate your sensitive nature.</p>
+                <p>Pro Tip: Silky, fluid fabrics (satin, chiffon) with subtle sheen reflect your ability to flow with change.</p>
+                <p>Best Occasion: Negotiations, one-on-one conversations, and creative problem-solving.</p>
             `,
             "Fire": `
-                <p><strong>Your Element: Fire</strong></p>
-                <p>Core Traits: Passionate, energetic, charismatic, and bold.</p>
-                <p>Fashion Tips: Bright red, orange, and warm yellow colors amplify your charm and popularity. These colors also boost your romantic luck and confidence.</p>
-                <p>Lucky Symbols: Abstract flame patterns, bold color blocks, and statement pieces.</p>
-                <p>Fortune Boost: Fire energy peaks in summer. Wearing fire-toned clothes can help you shine in social situations and attract positive attention.</p>
+                <p><strong>🔹 Your Element: Fire</strong></p>
+                <p>Core Traits: Passionate, charismatic, and naturally magnetic. You light up every room you enter.</p>
+                <p>Style Power Colors: Vibrant red, warm orange, and sunny yellow. These amplify your confidence and attractiveness.</p>
+                <p>Avoid Colors: Dull, lifeless grays or overly muted tones that can suppress your outgoing energy.</p>
+                <p>Pro Tip: Bold accents (scarves, jewelry) or statement pieces work wonders for your naturally bold personality.</p>
+                <p>Best Occasion: Dates, parties, public speaking, and any situation where you want to shine.</p>
             `,
             "Earth": `
-                <p><strong>Your Element: Earth</strong></p>
-                <p>Core Traits: Stable, reliable, nurturing, and responsible.</p>
-                <p>Fashion Tips: Neutral tones like brown, beige, and olive suit you best. These colors enhance your sense of security and trustworthiness, helping you build stable relationships.</p>
-                <p>Lucky Symbols: Earthy textures like knitwear, linen, and nature-inspired prints.</p>
-                <p>Fortune Boost: Earth energy is strongest in late summer. Wearing earth-toned clothes can help you maintain balance and harmony in all aspects of life.</p>
+                <p><strong>🔹 Your Element: Earth</strong></p>
+                <p>Core Traits: Stable, reliable, and deeply nurturing. You are the rock for everyone around you.</p>
+                <p>Style Power Colors: Warm brown, terracotta, olive green, and soft cream. These enhance your grounded and trustworthy energy.</p>
+                <p>Avoid Colors: Overly flashy, synthetic-looking fabrics or overly bright neon that can disrupt your calm presence.</p>
+                <p>Pro Tip: Natural, textured fabrics (knit, canvas) and classic silhouettes highlight your dependable nature.</p>
+                <p>Best Occasion: Team building, family gatherings, and long-term planning discussions.</p>
             `
         };
 
@@ -248,8 +253,8 @@
             let eleName = elementMap[d.fiveElements] || d.fiveElements;
             let colorListHtml = d.suggestions.luckyColors.map(c=>`<span class="color-tag">${c}</span>`).join("");
 
-            // 动态生成专属五行指南内容
-            const personalEleContent = elementGuideMap[eleName] || `<p>Your exclusive guide for ${eleName} will appear here.</p>`;
+            // 动态生成专属五行指南内容（和通用版完全不同）
+            const personalEleContent = elementExclusiveGuide[eleName] || `<p>Your exclusive guide for ${eleName} will appear here.</p>`;
             document.getElementById("personalEleContent").innerHTML = personalEleContent;
 
             level2Box.innerHTML = `
