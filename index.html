@@ -21,7 +21,7 @@
         }
 
         .container {
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -143,7 +143,9 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .result-header h2 {
@@ -151,37 +153,55 @@
             color: #e0e7ff;
         }
 
-        .result-section {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
+        .section-block {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
             border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
         }
 
-        .result-section:last-child {
+        .section-block:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
 
-        .result-section h3 {
-            font-size: 1.2rem;
-            color: #a78bfa;
-            margin-bottom: 0.8rem;
+        .section-title {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
+            font-size: 1.3rem;
+            color: #a78bfa;
+            margin-bottom: 1rem;
         }
 
-        .result-section p {
-            color: #e2d8f7;
-            line-height: 1.7;
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .detail-card {
+            background: rgba(255,255,255,0.05);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .detail-card h4 {
+            color: #e0e7ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-card p {
+            color: #c9b8f0;
+            font-size: 0.95rem;
         }
 
         .color-tags {
             display: flex;
             gap: 0.8rem;
             flex-wrap: wrap;
-            margin-top: 0.8rem;
+            margin-top: 1rem;
         }
 
         .color-tag {
@@ -191,6 +211,19 @@
             font-size: 0.9rem;
             border: 1px solid rgba(167, 139, 250, 0.3);
             color: #e0e7ff;
+        }
+
+        .advice-box {
+            background: rgba(167, 139, 250, 0.1);
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border-left: 3px solid #a78bfa;
+        }
+
+        .advice-box p {
+            color: #e2d8f7;
+            line-height: 1.7;
         }
 
         /* About Section */
@@ -297,12 +330,21 @@
     </div>
 
     <script>
-        // 中文数据翻译函数
-        function translateResult(data) {
+        // 中文数据翻译 + 扩展解读函数
+        function translateAndExpandResult(data, gender, scene) {
             const zodiacAnimalMap = {
-                "马": "Horse", "牛": "Ox", "虎": "Tiger", "兔": "Rabbit",
-                "龙": "Dragon", "蛇": "Snake", "羊": "Goat", "猴": "Monkey",
-                "鸡": "Rooster", "狗": "Dog", "猪": "Pig", "鼠": "Rat"
+                "马": {name: "Horse", meaning: "Symbolizes freedom, energy, and positivity"},
+                "牛": {name: "Ox", meaning: "Symbolizes diligence, stability, and reliability"},
+                "虎": {name: "Tiger", meaning: "Symbolizes courage, leadership, and confidence"},
+                "兔": {name: "Rabbit", meaning: "Symbolizes gentleness, kindness, and elegance"},
+                "龙": {name: "Dragon", meaning: "Symbolizes power, luck, and ambition"},
+                "蛇": {name: "Snake", meaning: "Symbolizes wisdom, intuition, and adaptability"},
+                "羊": {name: "Goat", meaning: "Symbolizes peace, harmony, and creativity"},
+                "猴": {name: "Monkey", meaning: "Symbolizes intelligence, wit, and versatility"},
+                "鸡": {name: "Rooster", meaning: "Symbolizes punctuality, honesty, and confidence"},
+                "狗": {name: "Dog", meaning: "Symbolizes loyalty, honesty, and protection"},
+                "猪": {name: "Pig", meaning: "Symbolizes abundance, kindness, and sincerity"},
+                "鼠": {name: "Rat", meaning: "Symbolizes intelligence, adaptability, and wealth"}
             };
 
             const zodiacSignMap = {
@@ -313,13 +355,26 @@
             };
 
             const fiveElementsMap = {
-                "金": "Metal", "木": "Wood", "水": "Water", "火": "Fire", "土": "Earth"
+                "金": {name: "Metal", trait: "Determined, strong-willed, and disciplined"},
+                "木": {name: "Wood", trait: "Creative, growth-oriented, and flexible"},
+                "水": {name: "Water", trait: "Intuitive, adaptable, and empathetic"},
+                "火": {name: "Fire", trait: "Passionate, energetic, and charismatic"},
+                "土": {name: "Earth", trait: "Stable, reliable, and nurturing"}
+            };
+
+            const sceneAdvice = {
+                "Work": "For work occasions, your lucky colors will help you project confidence and professionalism, making a strong impression in meetings and presentations.",
+                "Date": "For romantic occasions, your lucky colors will enhance your charm and warmth, helping you create a memorable and attractive presence.",
+                "Daily": "For daily casual wear, your lucky colors will bring you positive energy and comfort, keeping you in a good mood throughout the day.",
+                "Party": "For social events, your lucky colors will make you stand out in the crowd, attracting attention and good luck.",
+                "Sport": "For sports activities, your lucky colors will boost your energy and vitality, helping you perform better and stay motivated."
             };
 
             return {
-                zodiacAnimal: zodiacAnimalMap[data.zodiacAnimal] || data.zodiacAnimal,
+                zodiacAnimal: zodiacAnimalMap[data.zodiacAnimal] || {name: data.zodiacAnimal, meaning: "A symbol of good fortune and positive energy"},
                 zodiacSign: zodiacSignMap[data.zodiacSign] || data.zodiacSign,
-                fiveElements: fiveElementsMap[data.fiveElements] || data.fiveElements,
+                fiveElements: fiveElementsMap[data.fiveElements] || {name: data.fiveElements, trait: "Balanced and harmonious energy"},
+                sceneAdvice: sceneAdvice[scene] || "Your lucky colors will bring you positive energy and good fortune in this occasion.",
                 suggestions: {
                     recommendedColor: data.suggestions.recommendedColor,
                     outfitAdvice: data.suggestions.outfitAdvice,
@@ -347,8 +402,8 @@
 
                 if (!res.ok) throw new Error('Failed to fetch your style analysis');
 
-                // 翻译数据
-                const data = translateResult(rawData);
+                // 翻译并扩展数据
+                const data = translateAndExpandResult(rawData, gender, scene);
 
                 resultDiv.innerHTML = `
                     <div class="result-card">
@@ -357,30 +412,72 @@
                             <h2>Your Personalized Lucky Style</h2>
                         </div>
 
-                        <div class="result-section">
-                            <h3>📊 Your Basic Fortune</h3>
-                            <p><strong>Chinese Zodiac:</strong> ${data.zodiacAnimal}</p>
-                            <p><strong>Western Zodiac:</strong> ${data.zodiacSign}</p>
-                            <p><strong>Five Elements:</strong> ${data.fiveElements}</p>
+                        <!-- 1. 基础运势板块 -->
+                        <div class="section-block">
+                            <div class="section-title">
+                                <span>📊</span>
+                                <h3>Your Basic Fortune Profile</h3>
+                            </div>
+                            <div class="detail-grid">
+                                <div class="detail-card">
+                                    <h4>Chinese Zodiac</h4>
+                                    <p>${data.zodiacAnimal.name}</p>
+                                    <p style="font-size:0.85rem; opacity:0.8; margin-top:0.5rem;">${data.zodiacAnimal.meaning}</p>
+                                </div>
+                                <div class="detail-card">
+                                    <h4>Western Zodiac</h4>
+                                    <p>${data.zodiacSign}</p>
+                                </div>
+                                <div class="detail-card">
+                                    <h4>Five Elements</h4>
+                                    <p>${data.fiveElements.name}</p>
+                                    <p style="font-size:0.85rem; opacity:0.8; margin-top:0.5rem;">${data.fiveElements.trait}</p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="result-section">
-                            <h3>🎨 Recommended Lucky Color</h3>
-                            <p>${data.suggestions.recommendedColor}</p>
+                        <!-- 2. 推荐幸运色板块 -->
+                        <div class="section-block">
+                            <div class="section-title">
+                                <span>🎨</span>
+                                <h3>Recommended Lucky Color</h3>
+                            </div>
+                            <div class="advice-box">
+                                <p><strong>Your Signature Color:</strong> ${data.suggestions.recommendedColor}</p>
+                                <p style="margin-top:0.5rem;">This color resonates perfectly with your ${data.fiveElements.name} energy, helping you attract positive luck and confidence.</p>
+                            </div>
                         </div>
 
-                        <div class="result-section">
-                            <h3>👗 Outfit Advice for Your Occasion</h3>
-                            <p>${data.suggestions.outfitAdvice}</p>
+                        <!-- 3. 场景穿搭建议板块 -->
+                        <div class="section-block">
+                            <div class="section-title">
+                                <span>👗</span>
+                                <h3>Outfit Advice for ${scene}</h3>
+                            </div>
+                            <div class="advice-box">
+                                <p>${data.suggestions.outfitAdvice}</p>
+                                <p style="margin-top:1rem; font-style:italic;">💡 ${data.sceneAdvice}</p>
+                            </div>
                         </div>
 
-                        <div class="result-section">
-                            <h3>💡 Five Elements Lucky Tip</h3>
-                            <p>${data.suggestions.fiveElementsTip}</p>
+                        <!-- 4. 五行幸运提示板块 -->
+                        <div class="section-block">
+                            <div class="section-title">
+                                <span>💡</span>
+                                <h3>Five Elements Lucky Tip</h3>
+                            </div>
+                            <div class="advice-box">
+                                <p>${data.suggestions.fiveElementsTip}</p>
+                            </div>
                         </div>
 
-                        <div class="result-section">
-                            <h3>🌈 All Your Lucky Colors</h3>
+                        <!-- 5. 所有幸运色板块 -->
+                        <div class="section-block">
+                            <div class="section-title">
+                                <span>🌈</span>
+                                <h3>All Your Lucky Colors</h3>
+                            </div>
+                            <p style="margin-bottom:1rem;">These colors are aligned with your ${data.fiveElements.name} energy and can bring you positive fortune:</p>
                             <div class="color-tags">
                                 ${data.suggestions.luckyColors.map(color => `<span class="color-tag">${color}</span>`).join('')}
                             </div>
