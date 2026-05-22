@@ -1,4 +1,7 @@
 {
-  "name": "fengshui-skill-api",
-  "version": "1.0.0"
+  "name": "wuxing-zodiac-fashion",
+  "version": "1.0.0",
+  "description": "Analyze your Chinese Zodiac and Five Elements to get lucky colors and fashion recommendations.",
+  "main": "index.js",
+  "author": "solozhangxiru"
 }
