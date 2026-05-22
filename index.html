@@ -106,7 +106,7 @@
         <!-- Level2 Page Container -->
         <div id="level2Box"></div>
 
-        <!-- Level3 Popup 1 Elements -->
+        <!-- Level3 Popup 1 Elements (通用百科) -->
         <div class="global-mask" id="eleMask">
             <div class="popup-container">
                 <div class="pop-head">
@@ -153,6 +153,19 @@
             </div>
         </div>
 
+        <!-- Level3 Popup 3 专属五行指南 -->
+        <div class="global-mask" id="personalEleMask">
+            <div class="popup-container">
+                <div class="pop-head">
+                    <h3>Your Exclusive Five Elements Guide</h3>
+                    <span class="close-pop" onclick="closePersonalEleMask()">× Close</span>
+                </div>
+                <div class="pop-content" id="personalEleContent">
+                    <!-- 这里的内容会根据你的五行属性动态生成 -->
+                </div>
+            </div>
+        </div>
+
         <div class="footer-tips">
             <p>Standard Multi-level Skill Structure | Full Dimension Fortune & Fashion Matching</p>
             <p>Accurate calculation based on traditional five elements and zodiac culture</p>
@@ -165,6 +178,47 @@
         function closeElementLevel3(){document.getElementById("eleMask").style.display="none";}
         function openZodiacLevel3(){document.getElementById("zodMask").style.display="flex";}
         function closeZodiacLevel3(){document.getElementById("zodMask").style.display="none";}
+        function openPersonalEleMask(){document.getElementById("personalEleMask").style.display="flex";}
+        function closePersonalEleMask(){document.getElementById("personalEleMask").style.display="none";}
+
+        // 五行专属解读数据
+        const elementGuideMap = {
+            "Metal": `
+                <p><strong>Your Element: Metal</strong></p>
+                <p>Core Traits: Determined, strong-willed, disciplined, and perfection-seeking.</p>
+                <p>Fashion Tips: Choose cool tones like silver, gray, white, and metallic colors to enhance your aura and competitiveness. Avoid overly soft or warm colors that may weaken your energy.</p>
+                <p>Lucky Symbols: Sharp geometric patterns, metal accessories, and structured silhouettes.</p>
+                <p>Fortune Boost: Metal energy is strong in autumn. Wearing metal-toned clothes during this season can amplify your career luck and decision-making power.</p>
+            `,
+            "Wood": `
+                <p><strong>Your Element: Wood</strong></p>
+                <p>Core Traits: Creative, growth-oriented, flexible, and full of vitality.</p>
+                <p>Fashion Tips: Fresh natural colors like green, light blue, and beige suit you best. These colors boost your creativity and interpersonal charm.</p>
+                <p>Lucky Symbols: Floral prints, plant patterns, and loose, flowing fabrics.</p>
+                <p>Fortune Boost: Wood energy peaks in spring. Wearing wood-toned clothes can help you seize new opportunities and grow in your career.</p>
+            `,
+            "Water": `
+                <p><strong>Your Element: Water</strong></p>
+                <p>Core Traits: Intuitive, adaptable, empathetic, and wise.</p>
+                <p>Fashion Tips: Deep blue, black, and soft purple colors enhance your wisdom and emotional perception. These colors also help you attract wealth and opportunities.</p>
+                <p>Lucky Symbols: Wave patterns, water-themed prints, and fluid fabrics like silk.</p>
+                <p>Fortune Boost: Water energy is strongest in winter. Wearing water-toned clothes can help you stay calm and make wise decisions.</p>
+            `,
+            "Fire": `
+                <p><strong>Your Element: Fire</strong></p>
+                <p>Core Traits: Passionate, energetic, charismatic, and bold.</p>
+                <p>Fashion Tips: Bright red, orange, and warm yellow colors amplify your charm and popularity. These colors also boost your romantic luck and confidence.</p>
+                <p>Lucky Symbols: Abstract flame patterns, bold color blocks, and statement pieces.</p>
+                <p>Fortune Boost: Fire energy peaks in summer. Wearing fire-toned clothes can help you shine in social situations and attract positive attention.</p>
+            `,
+            "Earth": `
+                <p><strong>Your Element: Earth</strong></p>
+                <p>Core Traits: Stable, reliable, nurturing, and responsible.</p>
+                <p>Fashion Tips: Neutral tones like brown, beige, and olive suit you best. These colors enhance your sense of security and trustworthiness, helping you build stable relationships.</p>
+                <p>Lucky Symbols: Earthy textures like knitwear, linen, and nature-inspired prints.</p>
+                <p>Fortune Boost: Earth energy is strongest in late summer. Wearing earth-toned clothes can help you maintain balance and harmony in all aspects of life.</p>
+            `
+        };
 
         // Data Mapping
         const zodiacMap = {"马":"Horse","牛":"Ox","虎":"Tiger","兔":"Rabbit","龙":"Dragon","蛇":"Snake","羊":"Goat","猴":"Monkey","鸡":"Rooster","狗":"Dog","猪":"Pig","鼠":"Rat"};
@@ -194,6 +248,10 @@
             let eleName = elementMap[d.fiveElements] || d.fiveElements;
             let colorListHtml = d.suggestions.luckyColors.map(c=>`<span class="color-tag">${c}</span>`).join("");
 
+            // 动态生成专属五行指南内容
+            const personalEleContent = elementGuideMap[eleName] || `<p>Your exclusive guide for ${eleName} will appear here.</p>`;
+            document.getElementById("personalEleContent").innerHTML = personalEleContent;
+
             level2Box.innerHTML = `
             <div class="main-card level-page">
                 <h2 class="page-title">Level 2 Standard Personal Comprehensive Analysis Report</h2>
@@ -222,7 +280,7 @@
                 </div>
                 <div class="level-nav" style="margin-top:20px;">
                     <button class="level-btn" onclick="location.reload()">Back Level1 Homepage</button>
-                    <button class="level-btn" onclick="openElementLevel3()">View Your Element Exclusive Guide</button>
+                    <button class="level-btn" onclick="openPersonalEleMask()">View Your Element Exclusive Guide</button>
                 </div>
             </div>
             `;
