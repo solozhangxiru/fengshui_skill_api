@@ -6,7 +6,7 @@
     <title>Wuxing Zodiac Fashion</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #2d1b69;
             color: white;
             display: flex;
@@ -14,26 +14,41 @@
             align-items: center;
             padding: 2rem;
             margin: 0;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at top, #4c1d95, transparent 70%);
         }
         .container {
             max-width: 800px;
             width: 100%;
         }
+        .header-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            display: block;
+        }
         h1 {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #e0e7ff, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         .subtitle {
             text-align: center;
             margin-bottom: 2rem;
             opacity: 0.9;
+            font-size: 1.1rem;
         }
         .form-card {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 16px;
             padding: 2rem;
             margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .form-group {
             margin-bottom: 1.5rem;
@@ -42,6 +57,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: bold;
+            font-size: 1rem;
         }
         input, select {
             width: 100%;
@@ -51,6 +67,12 @@
             background-color: rgba(255, 255, 255, 0.2);
             color: white;
             font-size: 1rem;
+            transition: all 0.3s;
+        }
+        input:focus, select:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 0 2px #a78bfa;
         }
         input::placeholder {
             color: rgba(255, 255, 255, 0.7);
@@ -65,42 +87,104 @@
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            margin-top: 0.5rem;
         }
         button:hover {
             background-color: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(147, 51, 234, 0.3);
+        }
+        button:disabled {
+            background-color: #6b21a8;
+            cursor: not-allowed;
+            transform: none;
         }
         .result-card {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 16px;
             padding: 2rem;
             margin-top: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .result-card h2 {
+            color: #e0e7ff;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        .result-item {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .result-item strong {
+            color: #a78bfa;
+            min-width: 120px;
+            display: inline-block;
+        }
+        .lucky-colors {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .color-tag {
+            background-color: rgba(167, 139, 250, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(167, 139, 250, 0.3);
         }
         .about-section {
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 3rem;
+        }
+        .about-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
         }
         .feature-list {
             list-style: none;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
         }
         .feature-list li {
-            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .feature-list li::before {
+            content: "✅";
         }
         .loading {
             text-align: center;
             font-size: 1.2rem;
             margin: 2rem 0;
+            color: #a78bfa;
         }
         .error {
             color: #ff6b6b;
             text-align: center;
             margin: 2rem 0;
+            background-color: rgba(255, 107, 107, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <img src="https://cdn-icons-png.flaticon.com/512/1149/1149166.png" alt="Yin Yang" class="header-icon">
         <h1>Wuxing Zodiac Fashion</h1>
         <p class="subtitle">Your Lucky Color & Best Fashion Style Advisor</p>
 
@@ -130,7 +214,7 @@
                     </select>
                 </div>
 
-                <button type="submit">Get My Lucky Style</button>
+                <button type="submit" id="submitBtn">Get My Lucky Style</button>
             </form>
         </div>
 
@@ -140,10 +224,10 @@
             <h2>About This Skill</h2>
             <div class="form-card">
                 <ul class="feature-list">
-                    <li>✅ Analyze Zodiac & Five Elements</li>
-                    <li>✅ Personal Lucky Color</li>
-                    <li>✅ Fashion Style for Every Scene</li>
-                    <li>✅ 100% Free & Easy to Use</li>
+                    <li>Analyze Zodiac & Five Elements</li>
+                    <li>Personal Lucky Color</li>
+                    <li>Fashion Style for Every Scene</li>
+                    <li>100% Free & Easy to Use</li>
                 </ul>
             </div>
         </div>
@@ -156,8 +240,11 @@
             const gender = document.getElementById('gender').value;
             const scene = document.getElementById('scene').value;
             const resultDiv = document.getElementById('result');
+            const submitBtn = document.getElementById('submitBtn');
             
-            resultDiv.innerHTML = '<div class="loading">正在分析中...</div>';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Analyzing...';
+            resultDiv.innerHTML = '<div class="loading">正在分析你的五行与生肖运势...</div>';
 
             try {
                 const res = await fetch(`/api/index.js?birthDate=${birthDate}&gender=${gender}&scene=${scene}`);
@@ -167,18 +254,38 @@
 
                 resultDiv.innerHTML = `
                     <div class="result-card">
-                        <h2>Your Lucky Style</h2>
-                        <p><strong>Zodiac Animal:</strong> ${data.zodiacAnimal}</p>
-                        <p><strong>Zodiac Sign:</strong> ${data.zodiacSign}</p>
-                        <p><strong>Five Elements:</strong> ${data.fiveElements}</p>
-                        <p><strong>Recommended Color:</strong> ${data.suggestions.recommendedColor}</p>
-                        <p><strong>Outfit Advice:</strong> ${data.suggestions.outfitAdvice}</p>
-                        <p><strong>Five Elements Tip:</strong> ${data.suggestions.fiveElementsTip}</p>
-                        <p><strong>Lucky Colors:</strong> ${data.suggestions.luckyColors.join(', ')}</p>
+                        <h2>✨ Your Lucky Style</h2>
+                        <div class="result-item">
+                            <strong>Zodiac Animal:</strong> ${data.zodiacAnimal}
+                        </div>
+                        <div class="result-item">
+                            <strong>Zodiac Sign:</strong> ${data.zodiacSign}
+                        </div>
+                        <div class="result-item">
+                            <strong>Five Elements:</strong> ${data.fiveElements}
+                        </div>
+                        <div class="result-item">
+                            <strong>Recommended Color:</strong> ${data.suggestions.recommendedColor}
+                        </div>
+                        <div class="result-item">
+                            <strong>Outfit Advice:</strong> ${data.suggestions.outfitAdvice}
+                        </div>
+                        <div class="result-item">
+                            <strong>Five Elements Tip:</strong> ${data.suggestions.fiveElementsTip}
+                        </div>
+                        <div class="result-item">
+                            <strong>Lucky Colors:</strong>
+                            <div class="lucky-colors">
+                                ${data.suggestions.luckyColors.map(color => `<span class="color-tag">${color}</span>`).join('')}
+                            </div>
+                        </div>
                     </div>
                 `;
             } catch (err) {
                 resultDiv.innerHTML = `<div class="error">出错了：${err.message}</div>`;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Get My Lucky Style';
             }
         });
     </script>
