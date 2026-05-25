@@ -1,0 +1,25 @@
+# Node.js dependencies
+node_modules/
+
+# Vercel deployment files
+.vercel/
+
+# IDE/Editor configuration
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Operating system generated files
+.DS_Store
+Thumbs.db
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
