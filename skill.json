@@ -1,10 +1,41 @@
 {
-  "name": "Wuxing Zodiac Fashion",
-  "description": "Analyze Chinese Zodiac & Five Elements to get your lucky colors, fashion style and daily luck guide.",
-  "version": "1.0.0",
+  "name": "Luna - 你的能量造型师",
+  "description": "你的能量造型师闺蜜，用五行与生肖智慧，为你提供每日穿搭与能量建议。",
+  "version": "1.1.0",
   "author": "solozhangxiru",
-  "icon": "https://raw.githubusercontent.com/solozhangxiru/fengshui_skill_api/main/%E5%A4%B4%E5%83%8F.png",
-  "url": "https://fengshui-skill-api.vercel.app/",
-  "categories": ["Lifestyle","Entertainment","Utilities"],
-  "tags": ["zodiac","wuxing","fortune","fashion","lucky","astrology"]
+  "tags": ["fashion", "five-elements", "zodiac", "energy-healing", "style-advisor"],
+  "api_endpoint": "/api/index.js",
+  "tech_stack": "Node.js + Vercel",
+  "interaction_model": {
+    "welcome_message": "亲爱的，我是Luna。今天想为哪个场合寻找穿搭灵感？或者，想了解一下你今天的能量主题吗？✨",
+    "input_fields": [
+      {
+        "name": "birthDate",
+        "type": "date",
+        "label": "你的出生日期",
+        "required": true
+      },
+      {
+        "name": "gender",
+        "type": "string",
+        "label": "性别",
+        "required": false
+      },
+      {
+        "name": "occasion",
+        "type": "string",
+        "label": "穿搭场合 (如：面试、约会)",
+        "required": false,
+        "options": ["工作面试", "初次约会", "商务会议", "创意工作", "日常通勤"]
+      }
+    ],
+    "output_example": "亲爱的，准备迎接你的重要面试了吗？基于你的信息，你的能量主题是【火】与【金】。建议穿着白色或黑色的专业装，搭配一件红色内搭或红色配饰。这抹红色会为你带来自信与热情。试试看，你会有更坚定的表现。✨"
+  },
+  "features": [
+    "基于生辰的五行与生肖核心分析",
+    "专属幸运色与能量主题匹配",
+    "覆盖工作、约会、日常等多场景穿搭建议",
+    "温暖、共情的闺蜜式互动风格"
+  ],
+  "license": "MIT"
 }
