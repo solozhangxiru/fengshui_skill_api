@@ -1,179 +1,116 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luna · 你的能量造型师闺蜜</title>
+    <title>Luna · Your Energy Stylist Bestie</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif;}
         body{background:linear-gradient(160deg,#201050,#402090);color:#f8f5ff;min-height:100vh;padding:24px 16px;}
         .container{max-width:960px;margin:0 auto;}
-
-        /* Header Banner */
         .skill-header{text-align:center;padding:20px 0;margin-bottom:24px;}
         .skill-header h1{font-size:32px;background:linear-gradient(90deg,#fbc2ff,#c4b0ff);-webkit-background-clip:text;color:transparent;margin-bottom:8px;}
         .skill-desc{color:#d8c8f0;font-size:15px;margin-bottom:10px;}
         .hot-badge{display:inline-block;background:#e84998;padding:3px 14px;border-radius:30px;font-size:12px;}
-
-        /* Stat Bar */
         .stat-row{display:flex;justify-content:space-around;background:rgba(255,255,255,0.05);border-radius:16px;padding:16px;margin-bottom:20px;}
         .stat-item text{font-size:24px;color:#f0b8ff;font-weight:bold;}
         .stat-item p{font-size:12px;color:#c2b0e8;margin-top:4px;}
-
-        /* Main Card */
-        .main-card{background:rgba(255,255,255,0.06);border:1px solid rgba(220,190,255,0.18);border-radius:20px;padding:26px;margin-bottom:20px;backdrop-filter:blur(10px);box-shadow:0 6px 26px rgba(80,30,160,0.2);}
-
-        /* Form */
+        .main-card{background:rgba(255,255,255,0.06);border:1px solid rgba(220,190,255,0.18);border-radius:20px;padding:26px;margin-bottom:20px;backdrop-filter:blur(10px);}
         .form-item{margin-bottom:18px;}
         .form-item label{display:block;color:#e4d8f8;margin-bottom:6px;font-size:14px;}
         input,select{width:100%;height:48px;background:rgba(255,255,255,0.1);border:none;border-radius:10px;color:#fff;padding:0 14px;font-size:15px;}
-
-        /* Primary Button */
         .primary-btn{width:100%;height:50px;background:linear-gradient(120deg,#a048e8,#7028c8);border-radius:10px;border:none;color:#fff;font-size:16px;font-weight:bold;cursor:pointer;transition:0.3s;margin:8px 0;}
         .primary-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(140,60,220,0.3);}
-
-        /* Level Nav Button Group */
         .level-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
         .level-btn{height:42px;background:rgba(255,255,255,0.08);border:1px solid rgba(200,160,255,0.2);border-radius:8px;color:#e0d0f8;font-size:13px;cursor:pointer;}
-
-        /* Multi Level Page Box */
         .level-page{margin-top:20px;}
         .page-title{font-size:19px;color:#f0e4ff;padding-bottom:10px;border-bottom:1px dashed rgba(255,255,255,0.15);margin-bottom:16px;}
         .info-block{padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
         .info-block:last-child{border:none;}
         .block-subtitle{color:#c8a8ff;font-size:15px;margin-bottom:6px;}
         .color-tag{display:inline-block;background:rgba(230,160,220,0.15);padding:4px 12px;border-radius:16px;margin:3px;font-size:13px;}
-
-        /* Popup Full Level Modal */
         .global-mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.82);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px;}
         .popup-container{width:100%;max-width:660px;background:#2c1c66;border-radius:20px;padding:28px;max-height:90vh;overflow-y:auto;}
         .pop-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
         .pop-head h3{color:#f0c8ff;font-size:18px;}
         .close-pop{color:#c0b0e0;cursor:pointer;font-size:17px;}
         .pop-content{line-height:1.7;color:#d4c4f0;font-size:14px;}
-
-        /* Footer Tips */
         .footer-tips{text-align:center;margin-top:24px;color:#a890d0;font-size:13px;line-height:1.5;}
         .loading-txt{text-align:center;padding:25px;color:#c0a0f0;}
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Level 1 Home Page -->
         <div class="skill-header">
-            <h1>✨ 嗨，我是 Luna ✨</h1>
-            <p class="skill-desc">你的专属能量造型师闺蜜。告诉我你的信息，我们一起聊聊今天的能量穿搭～</p>
-            <span class="hot-badge">🌙 全球 920k+ 用户的温暖选择</span>
+            <h1>✨ Hi, I'm Luna ✨</h1>
+            <p class="skill-desc">Your energy stylist bestie. Tell me about yourself, and let's find your perfect energy outfit together 💕</p>
+            <span class="hot-badge">🌙 Trusted by 920K+ souls worldwide</span>
         </div>
 
         <div class="stat-row">
-            <div class="stat-item"><text>920K+</text><p>贴心闺蜜</p></div>
-            <div class="stat-item"><text>97%</text><p>用户感到被治愈</p></div>
-            <div class="stat-item"><text>12+5</text><p>深度能量模块</p></div>
+            <div class="stat-item"><text>920K+</text><p>Happy Besties</p></div>
+            <div class="stat-item"><text>97%</text><p>Feel Understood</p></div>
+            <div class="stat-item"><text>12+5</text><p>Energy Modules</p></div>
         </div>
 
         <div class="main-card">
             <form id="firstForm">
                 <div class="form-item">
-                    <label>🌼 你的生日是？</label>
+                    <label>🌼 What's your birthday?</label>
                     <input type="date" id="birthVal" required>
                 </div>
                 <div class="form-item">
-                    <label>🌸 你的性别</label>
+                    <label>🌸 Your gender</label>
                     <select id="genderVal">
-                        <option value="Female">女生</option>
-                        <option value="Male">男生</option>
+                        <option value="Female">She/Her · Feminine</option>
+                        <option value="Male">He/Him · Masculine</option>
                     </select>
                 </div>
                 <div class="form-item">
-                    <label>🍃 今天要去哪里呢？</label>
+                    <label>🍃 Where are you going today?</label>
                     <select id="sceneVal">
-                        <option value="Work">职场 · 重要会议/面试</option>
-                        <option value="Date">约会 · 浪漫时刻</option>
-                        <option value="Daily">日常 · 自由放松</option>
-                        <option value="Party">聚会 · 派对社交</option>
-                        <option value="Sport">运动 · 活力时刻</option>
+                        <option value="Work">💼 Work · Important Meeting/Interview</option>
+                        <option value="Date">💕 Date · Romantic Night</option>
+                        <option value="Daily">🌿 Daily · Casual & Free</option>
+                        <option value="Party">🎉 Party · Social Gathering</option>
+                        <option value="Sport">⚡ Sport · Active Day</option>
                     </select>
                 </div>
-                <button class="primary-btn" type="submit">✨ 听听 Luna 的建议 ✨</button>
+                <button class="primary-btn" type="submit">✨ Get Luna's Advice ✨</button>
             </form>
             <div class="level-nav">
-                <button class="level-btn" onclick="openElementLevel3()">🌿 五行能量百科</button>
-                <button class="level-btn" onclick="openZodiacLevel3()">⭐ 12生肖故事集</button>
+                <button class="level-btn" onclick="openElementLevel3()">🌿 5 Elements Wisdom</button>
+                <button class="level-btn" onclick="openZodiacLevel3()">⭐ 12 Zodiac Stories</button>
             </div>
         </div>
 
-        <!-- Level2 Page Container -->
         <div id="level2Box"></div>
 
-        <!-- Level3 Popup 1 通用五行百科（闺蜜温柔版） -->
+        <!-- Popups -->
         <div class="global-mask" id="eleMask">
-            <div class="popup-container">
-                <div class="pop-head">
-                    <h3>🌿 五行能量 · 疗愈小百科</h3>
-                    <span class="close-pop" onclick="closeElementLevel3()">💜 关闭</span>
-                </div>
-                <div class="pop-content">
-                    <p><strong>💎 金 · 清晰与力量</strong><br>意志坚定，决策力强。适合穿冷色调或金属色，能增强在职场中的自信和决断力。</p>
-                    <br>
-                    <p><strong>🌳 木 · 生长与希望</strong><br>温柔有创意，充满生命力。穿绿色/青色，能提升亲和力与灵感。</p>
-                    <br>
-                    <p><strong>💧 水 · 智慧与宁静</strong><br>感知力强，富有直觉。深蓝色、黑色带来智慧与平和，适合需要深度思考的场合。</p>
-                    <br>
-                    <p><strong>🔥 火 · 热情与自信</strong><br>天生有魅力，行动力爆棚。红色/紫色让你在任何场合都闪耀迷人。</p>
-                    <br>
-                    <p><strong>⛰️ 土 · 稳定与滋养</strong><br>稳重可靠，包容体贴。大地色系（黄、棕、米）给你带来安全感和好人缘。</p>
-                    <br>
-                    <p>✨ 五行能量相生相克，影响着你的心情与人际。穿搭不只是打扮，更是对能量的温柔调频。</p>
-                </div>
-            </div>
+            <div class="popup-container"><div class="pop-head"><h3>🌿 5 Elements · Energy Wisdom</h3><span class="close-pop" onclick="closeElementLevel3()">💜 Close</span></div>
+            <div class="pop-content"><p><strong>💎 Metal · Clarity & Strength</strong><br>You are determined and decisive. White, silver, and grey enhance your leadership aura.</p>
+            <p><strong>🌳 Wood · Growth & Hope</strong><br>You are creative and gentle. Green and cyan boost your inspiration and charm.</p>
+            <p><strong>💧 Water · Wisdom & Calm</strong><br>You are intuitive and deep. Navy and black bring you peace and insight.</p>
+            <p><strong>🔥 Fire · Passion & Confidence</strong><br>You are bold and charismatic. Red and purple make you shine anywhere.</p>
+            <p><strong>⛰️ Earth · Stability & Nurturing</strong><br>You are reliable and warm. Yellow, brown, and beige give you grounding energy.</p></div></div>
         </div>
-
-        <!-- Level3 Popup 2 生肖解读（故事版） -->
         <div class="global-mask" id="zodMask">
-            <div class="popup-container">
-                <div class="pop-head">
-                    <h3>⭐ 12生肖 · 能量与性格小传</h3>
-                    <span class="close-pop" onclick="closeZodiacLevel3()">💜 关闭</span>
-                </div>
-                <div class="pop-content">
-                    <p>🐭 鼠：机智灵敏，擅长捕捉机遇，财运与桃花运都不错。</p>
-                    <p>🐮 牛：踏实稳重，一步一个脚印，福气绵延，值得信赖。</p>
-                    <p>🐯 虎：天生领导力，气场强大，容易获得成就与尊重。</p>
-                    <p>🐰 兔：温柔优雅，心地善良，人缘极佳，贵人环绕。</p>
-                    <p>🐲 龙：自带贵气，事业运旺盛，总有贵人在关键时出现。</p>
-                    <p>🐍 蛇：智慧冷静，判断精准，深藏不露，暗藏财富机遇。</p>
-                    <p>🐴 马：自由奔放，热情洋溢，社交圈广，适合向外发展。</p>
-                    <p>🐏 羊：温和善良，富有艺术气息，生活平静喜乐。</p>
-                    <p>🐵 猴：聪明灵活，反应快，一生多奇遇，幸运常在。</p>
-                    <p>🐔 鸡：自信严谨，能力出众，容易被认可和信赖。</p>
-                    <p>🐶 狗：忠诚正直，责任感强，守护家人与朋友，福气稳固。</p>
-                    <p>🐷 猪：天生有福气，知足常乐，物质丰盈，心情愉悦。</p>
-                </div>
-            </div>
+            <div class="popup-container"><div class="pop-head"><h3>⭐ 12 Zodiac · Personality Stories</h3><span class="close-pop" onclick="closeZodiacLevel3()">💜 Close</span></div>
+            <div class="pop-content"><p>🐭 Rat: Smart, sharp, great at catching opportunities.</p><p>🐮 Ox: Steady, reliable, blessed with long-term fortune.</p><p>🐯 Tiger: Born leader, powerful aura, natural respect.</p><p>🐰 Rabbit: Gentle, kind, excellent social luck.</p><p>🐲 Dragon: Noble energy, smooth career, always supported.</p><p>🐍 Snake: Wise, calm, hidden wealth and insight.</p><p>🐴 Horse: Free, passionate, wide social circle.</p><p>🐏 Goat: Gentle, artistic, peaceful and happy life.</p><p>🐵 Monkey: Clever, flexible, full of lucky surprises.</p><p>🐔 Rooster: Confident, rigorous, easy to be trusted.</p><p>🐶 Dog: Loyal, honest, strong family and friendship.</p><p>🐷 Pig: Born lucky, satisfied, abundant and joyful.</p></div></div>
         </div>
-
-        <!-- Level3 Popup 3 专属五行指南（内容全新重写） -->
         <div class="global-mask" id="personalEleMask">
-            <div class="popup-container">
-                <div class="pop-head">
-                    <h3>💖 给你的 · 专属能量指南</h3>
-                    <span class="close-pop" onclick="closePersonalEleMask()">💜 关闭</span>
-                </div>
-                <div class="pop-content" id="personalEleContent">
-                    <!-- 内容会根据你的五行属性动态生成 -->
-                </div>
-            </div>
+            <div class="popup-container"><div class="pop-head"><h3>💖 Your Personal Energy Guide</h3><span class="close-pop" onclick="closePersonalEleMask()">💜 Close</span></div>
+            <div class="pop-content" id="personalEleContent"></div></div>
         </div>
 
         <div class="footer-tips">
-            <p>✨ 穿搭是快乐的实验，你是自己生活的主角 ✨</p>
-            <p>🌙 所有建议，皆为温暖陪伴。最重要的是，你开心就好 🌙</p>
+            <p>✨ Fashion is an experiment. You are the main character. ✨</p>
+            <p>🌙 All advice is warm companionship. What matters most is you feel good 🌙</p>
         </div>
     </div>
 
     <script>
-        // Level3 Pop Control
         function openElementLevel3(){document.getElementById("eleMask").style.display="flex";}
         function closeElementLevel3(){document.getElementById("eleMask").style.display="none";}
         function openZodiacLevel3(){document.getElementById("zodMask").style.display="flex";}
@@ -181,114 +118,67 @@
         function openPersonalEleMask(){document.getElementById("personalEleMask").style.display="flex";}
         function closePersonalEleMask(){document.getElementById("personalEleMask").style.display="none";}
 
-        // 专属五行解读（和通用版话术完全不同，闺蜜语气）
         const elementExclusiveGuide = {
-            "Metal": `
-                <p>✨ 亲爱的，你是 <strong>金</strong> 能量特质的人 ✨</p>
-                <p>你天生有一种清晰、坚定的力量，做事有条理，不轻易动摇。你喜欢“对”的感觉，也追求效率和质感。</p>
-                <p>🎨 适合你的能量色：<strong>白色、银色、冷灰色、金属色系</strong>。这些颜色能强化你的决断力，让你在人群中自带气场。</p>
-                <p>🚫 可以偶尔避开：过于柔和的粉彩或过于花哨混乱的图案，它们可能会让你感觉“抓不住重点”。</p>
-                <p>💎 穿搭小灵感：利落的剪裁、有质感的羊毛或亚麻面料，非常衬你“做事干脆”的气质。</p>
-                <p>🌟 最佳登场时刻：工作会议、重要演讲、任何需要你展现出专业与掌控力的场合。</p>
-                <p>🌙 记住，你坚定又温柔的样子，本来就闪闪发光。</p>
-            `,
-            "Wood": `
-                <p>✨ 亲爱的，你是 <strong>木</strong> 能量特质的人 ✨</p>
-                <p>你有一种向上生长的生命力，温暖、有创意，也特别能理解别人的感受。就像春天的树，总在悄悄地发芽、开花。</p>
-                <p>🎨 适合你的能量色：<strong>绿色、青色、淡蓝色、米色</strong>。这些颜色会滋养你的灵感，让你身边的人如沐春风。</p>
-                <p>🚫 可以偶尔避开：过于沉重、全黑的搭配，可能会压住你灵动的能量。</p>
-                <p>💎 穿搭小灵感：宽松的亚麻衬衫，流动的半身裙，或者任何让你感觉“能呼吸”的衣物，都是你的好朋友。</p>
-                <p>🌟 最佳登场时刻：需要创意爆发的头脑风暴、团队合作、或是轻松的朋友聚会。</p>
-                <p>🌙 你温柔又有力量，本身就充满生机。</p>
-            `,
-            "Water": `
-                <p>✨ 亲爱的，你是 <strong>水</strong> 能量特质的人 ✨</p>
-                <p>你有一种说不出的智慧，直觉很准，像水一样，总能适应各种环境，并且看到事物深层的样子。</p>
-                <p>🎨 适合你的能量色：<strong>深海蓝、藏青色、墨绿、淡紫色</strong>。这些深邃、静谧的颜色，能让你感到平静，并提升你的直觉力。</p>
-                <p>🚫 可以偶尔避开：过于刺眼的荧光色或大面积的正红色，它们可能会让你感觉不太自在。</p>
-                <p>💎 穿搭小灵感：丝滑的丝质衬衫、轻柔的雪纺连衣裙，或带有流动感设计的配饰，都非常符合你的气质。</p>
-                <p>🌟 最佳登场时刻：需要深度沟通的对话、谈判、创作、或任何需要你发挥洞察力的时刻。</p>
-                <p>🌙 你的智慧如静水深流，温柔而坚定。</p>
-            `,
-            "Fire": `
-                <p>✨ 亲爱的，你是 <strong>火</strong> 能量特质的人 ✨</p>
-                <p>你天生就是发光体，充满热情与感染力。有你在的地方，永远不会冷场，你总能点燃大家的情绪。</p>
-                <p>🎨 适合你的能量色：<strong>红色、紫色、橘色、亮粉色</strong>。这些颜色就像你的内心一样，热情、明媚、充满力量。</p>
-                <p>🚫 可以偶尔避开：暗淡的、没有生气的灰褐色系，它们可能会暂时盖住你耀眼的光芒。</p>
-                <p>💎 穿搭小灵感：一件亮色的配饰（围巾、包包），或是一个抢眼的妆容，都能让你成为焦点。但也要记住，你本身才是最大的亮点。</p>
-                <p>🌟 最佳登场时刻：约会、派对、演讲、任何你想要闪耀全场的场合。</p>
-                <p>🌙 你的热情能点亮他人，请继续这样发光。</p>
-            `,
-            "Earth": `
-                <p>✨ 亲爱的，你是 <strong>土</strong> 能量特质的人 ✨</p>
-                <p>你是“稳稳的幸福”本人。你包容、可靠，像大地一样滋养着身边的人。大家都喜欢向你靠近，因为在你身边感觉安心。</p>
-                <p>🎨 适合你的能量色：<strong>大地色系：米色、驼色、卡其色、陶土色、橄榄绿</strong>。这些颜色能衬托出你的敦厚与值得信赖的气质。</p>
-                <p>🚫 可以偶尔避开：过于浮夸闪亮或设计感过强的单品，简单的经典款更能体现你的内在质感。</p>
-                <p>💎 穿搭小灵感：柔软有质感的针织衫、舒适的阔腿裤，自然材质的棉麻衣物，让你看起来既优雅又放松。</p>
-                <p>🌟 最佳登场时刻：需要建立信任的场合、团队建设活动、家庭聚会。</p>
-                <p>🌙 你是他人温柔的依靠，也请记得好好滋养自己。</p>
-            `
+            "Metal": `<p>✨ Dear, you are <strong>Metal</strong> energy ✨</p><p>You are clear, strong, and love efficiency. White, silver, and grey enhance your natural leadership.</p><p>🌟 Best for: Work meetings, presentations, any moment you need to shine.</p><p>🌙 Remember, you are powerful and beautiful.</p>`,
+            "Wood": `<p>✨ Dear, you are <strong>Wood</strong> energy ✨</p><p>You are creative, gentle, and full of life. Green and cyan boost your inspiration and social charm.</p><p>🌟 Best for: Brainstorming, team collaboration, creative work.</p><p>🌙 Your growth energy inspires everyone around you.</p>`,
+            "Water": `<p>✨ Dear, you are <strong>Water</strong> energy ✨</p><p>You are intuitive, wise, and adaptable. Navy and black bring you peace and deep insight.</p><p>🌟 Best for: Deep conversations, negotiation, creative thinking.</p><p>🌙 Your wisdom flows like a quiet river.</p>`,
+            "Fire": `<p>✨ Dear, you are <strong>Fire</strong> energy ✨</p><p>You are passionate, charismatic, and naturally shine. Red and purple make you unforgettable.</p><p>🌟 Best for: Parties, dates, speeches, any moment you want to be seen.</p><p>🌙 Your light warms everyone around you.</p>`,
+            "Earth": `<p>✨ Dear, you are <strong>Earth</strong> energy ✨</p><p>You are stable, reliable, and deeply nurturing. Brown, beige, and olive give you grounding strength.</p><p>🌟 Best for: Team building, family gatherings, long-term planning.</p><p>🌙 You are the rock that others lean on. Remember to rest too.</p>`
         };
 
-        // Data Mapping
         const zodiacMap = {"马":"Horse","牛":"Ox","虎":"Tiger","兔":"Rabbit","龙":"Dragon","蛇":"Snake","羊":"Goat","猴":"Monkey","鸡":"Rooster","狗":"Dog","猪":"Pig","鼠":"Rat"};
         const elementMap = {"金":"Metal","木":"Wood","水":"Water","火":"Fire","土":"Earth"};
 
-        // Level1 Submit Jump Level2
         const form = document.getElementById("firstForm");
         const level2Box = document.getElementById("level2Box");
-        form.addEventListener("submit",async e=>{
+        form.addEventListener("submit", async e => {
             e.preventDefault();
             let birth = document.getElementById("birthVal").value;
             let gender = document.getElementById("genderVal").value;
             let scene = document.getElementById("sceneVal").value;
-            level2Box.innerHTML = `<div class="main-card loading-txt">💫 稍等一下，Luna 正在感受你的能量场...</div>`;
-            try{
+            level2Box.innerHTML = `<div class="main-card loading-txt">💫 Just a sec, Luna is tuning into your energy...</div>`;
+            try {
                 let res = await fetch(`/api/index.js?birthDate=${birth}&gender=${gender}&scene=${scene}`);
                 let data = await res.json();
-                renderLevel2FullPage(data,gender,scene);
-            }catch(err){
-                level2Box.innerHTML = `<div class="main-card" style="text-align:center;color:#ff9999">🌙 哎呀，网络开小差了，请刷新一下页面再试试～</div>`;
+                renderLevel2FullPage(data, gender, scene);
+            } catch (err) {
+                level2Box.innerHTML = `<div class="main-card" style="text-align:center;color:#ff9999">🌙 Oops, network error. Please refresh and try again～</div>`;
             }
-        })
+        });
 
-        // Render Standard Level2 Full Volume Page
-        function renderLevel2FullPage(d,gender,scene){
+        function renderLevel2FullPage(d, gender, scene) {
             let zodName = zodiacMap[d.zodiacAnimal] || d.zodiacAnimal;
             let eleName = elementMap[d.fiveElements] || d.fiveElements;
-            let colorListHtml = d.suggestions.luckyColors.map(c=>`<span class="color-tag">${c}</span>`).join("");
-
-            // 动态生成专属五行指南内容
-            const personalEleContent = elementExclusiveGuide[eleName] || `<p>✨ 亲爱的，你是独特的 ${eleName} 能量体 ✨<br>你的专属能量指南正在加载中，请稍后再试～</p>`;
+            let colorListHtml = d.suggestions.luckyColors.map(c => `<span class="color-tag">${c}</span>`).join("");
+            const personalEleContent = elementExclusiveGuide[eleName] || `<p>✨ Dear, you are unique ${eleName} energy ✨</p>`;
             document.getElementById("personalEleContent").innerHTML = personalEleContent;
 
             level2Box.innerHTML = `
             <div class="main-card level-page">
-                <h2 class="page-title">💌 给 <span style="color:#f0b8ff;">${zodName}</span> 的能量穿搭报告</h2>
+                <h2 class="page-title">💌 A Letter for You, Dear <span style="color:#f0b8ff;">${zodName}</span></h2>
                 <div class="info-block">
-                    <h4 class="block-subtitle">🌙 你的能量基础信息</h4>
-                    <p>🐉 生肖：<strong>${zodName}</strong> &nbsp;|&nbsp; 🔥 五行能量：<strong>${eleName}</strong></p>
-                    <p>👗 今日场景：<strong>${scene}</strong> &nbsp;|&nbsp; 🌸 你的风格：<strong>${gender === 'Female' ? '温柔女生' : '阳光男生'}</strong></p>
+                    <h4 class="block-subtitle">🌙 Your Energy Profile</h4>
+                    <p>🐉 Zodiac: <strong>${zodName}</strong> &nbsp;|&nbsp; 🔥 Element: <strong>${eleName}</strong></p>
+                    <p>👗 Today's Scene: <strong>${scene}</strong> &nbsp;|&nbsp; 🌸 Style: <strong>${gender === 'Female' ? 'Feminine' : 'Masculine'}</strong></p>
                 </div>
                 <div class="info-block">
-                    <h4 class="block-subtitle">🎨 你的今日能量色盘</h4>
+                    <h4 class="block-subtitle">🎨 Your Energy Color Palette</h4>
                     <p><strong>${d.suggestions.recommendedColor}</strong></p>
                     <div>${colorListHtml}</div>
                 </div>
                 <div class="info-block">
-                    <h4 class="block-subtitle">💎 Luna 的穿搭悄悄话</h4>
+                    <h4 class="block-subtitle">💖 Luna's Warm Whisper</h4>
                     <p>${d.suggestions.outfitAdvice}</p>
                 </div>
                 <div class="info-block">
-                    <h4 class="block-subtitle">🌿 给你的日常能量小提示</h4>
+                    <h4 class="block-subtitle">🌿 Daily Energy Reminder</h4>
                     <p>${d.suggestions.fiveElementsTip}</p>
                 </div>
                 <div class="level-nav" style="margin-top:20px;">
-                    <button class="level-btn" onclick="location.reload()">🏠 回到主页</button>
-                    <button class="level-btn" onclick="openPersonalEleMask()">💖 查看我的能量指南</button>
+                    <button class="level-btn" onclick="location.reload()">🏠 Back to Home</button>
+                    <button class="level-btn" onclick="openPersonalEleMask()">💖 Read My Energy Guide</button>
                 </div>
-            </div>
-            `;
+            </div>`;
         }
     </script>
 </body>
