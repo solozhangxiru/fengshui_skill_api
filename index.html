@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Five Elements & Zodiac Fashion Skill</title>
+    <title>Luna · 你的能量造型师闺蜜</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif;}
         body{background:linear-gradient(160deg,#201050,#402090);color:#f8f5ff;min-height:100vh;padding:24px 16px;}
@@ -61,94 +61,94 @@
     <div class="container">
         <!-- Level 1 Home Page -->
         <div class="skill-header">
-            <h1>Five Elements & Zodiac Fashion Skill</h1>
-            <p class="skill-desc">Professional Lucky Color Matching & Personal Fortune Analysis System</p>
-            <span class="hot-badge">Popular Global Skill</span>
+            <h1>✨ 嗨，我是 Luna ✨</h1>
+            <p class="skill-desc">你的专属能量造型师闺蜜。告诉我你的信息，我们一起聊聊今天的能量穿搭～</p>
+            <span class="hot-badge">🌙 全球 920k+ 用户的温暖选择</span>
         </div>
 
         <div class="stat-row">
-            <div class="stat-item"><text>920K+</text><p>Total User</p></div>
-            <div class="stat-item"><text>97%</text><p>Satisfied Rate</p></div>
-            <div class="stat-item"><text>12+5</text><p>Full Analysis Module</p></div>
+            <div class="stat-item"><text>920K+</text><p>贴心闺蜜</p></div>
+            <div class="stat-item"><text>97%</text><p>用户感到被治愈</p></div>
+            <div class="stat-item"><text>12+5</text><p>深度能量模块</p></div>
         </div>
 
         <div class="main-card">
             <form id="firstForm">
                 <div class="form-item">
-                    <label>Personal Birth Date</label>
+                    <label>🌼 你的生日是？</label>
                     <input type="date" id="birthVal" required>
                 </div>
                 <div class="form-item">
-                    <label>Gender Selection</label>
+                    <label>🌸 你的性别</label>
                     <select id="genderVal">
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
+                        <option value="Female">女生</option>
+                        <option value="Male">男生</option>
                     </select>
                 </div>
                 <div class="form-item">
-                    <label>Daily Usage Scene</label>
+                    <label>🍃 今天要去哪里呢？</label>
                     <select id="sceneVal">
-                        <option value="Work">Career & Workplace</option>
-                        <option value="Date">Romantic Dating</option>
-                        <option value="Daily">Ordinary Daily Life</option>
-                        <option value="Party">Social Gathering Party</option>
-                        <option value="Sport">Outdoor Sports Fitness</option>
+                        <option value="Work">职场 · 重要会议/面试</option>
+                        <option value="Date">约会 · 浪漫时刻</option>
+                        <option value="Daily">日常 · 自由放松</option>
+                        <option value="Party">聚会 · 派对社交</option>
+                        <option value="Sport">运动 · 活力时刻</option>
                     </select>
                 </div>
-                <button class="primary-btn" type="submit">Enter Level 2 Detailed Analysis</button>
+                <button class="primary-btn" type="submit">✨ 听听 Luna 的建议 ✨</button>
             </form>
             <div class="level-nav">
-                <button class="level-btn" onclick="openElementLevel3()">Level3 Five Elements Encyclopedia</button>
-                <button class="level-btn" onclick="openZodiacLevel3()">Level3 Zodiac Character Archive</button>
+                <button class="level-btn" onclick="openElementLevel3()">🌿 五行能量百科</button>
+                <button class="level-btn" onclick="openZodiacLevel3()">⭐ 12生肖故事集</button>
             </div>
         </div>
 
         <!-- Level2 Page Container -->
         <div id="level2Box"></div>
 
-        <!-- Level3 Popup 1 通用五行百科（不变） -->
+        <!-- Level3 Popup 1 通用五行百科（闺蜜温柔版） -->
         <div class="global-mask" id="eleMask">
             <div class="popup-container">
                 <div class="pop-head">
-                    <h3>Five Elements Complete Encyclopedia</h3>
-                    <span class="close-pop" onclick="closeElementLevel3()">× Close</span>
+                    <h3>🌿 五行能量 · 疗愈小百科</h3>
+                    <span class="close-pop" onclick="closeElementLevel3()">💜 关闭</span>
                 </div>
                 <div class="pop-content">
-                    <p><strong>Metal Element</strong><br>Strong willpower, decisive personality, pursuit of perfection and efficiency. Suitable for cold tone clothing, enhance career competitiveness and personal aura.</p>
+                    <p><strong>💎 金 · 清晰与力量</strong><br>意志坚定，决策力强。适合穿冷色调或金属色，能增强在职场中的自信和决断力。</p>
                     <br>
-                    <p><strong>Wood Element</strong><br>Natural vitality, gentle mind, rich creativity and imagination. Fresh and natural colors help improve interpersonal relationship and growth luck.</p>
+                    <p><strong>🌳 木 · 生长与希望</strong><br>温柔有创意，充满生命力。穿绿色/青色，能提升亲和力与灵感。</p>
                     <br>
-                    <p><strong>Water Element</strong><br>Flexible thinking, keen insight, strong adaptability and emotional perception. Dark soft color matches bring wisdom and wealth accumulation fortune.</p>
+                    <p><strong>💧 水 · 智慧与宁静</strong><br>感知力强，富有直觉。深蓝色、黑色带来智慧与平和，适合需要深度思考的场合。</p>
                     <br>
-                    <p><strong>Fire Element</strong><br>Bold enthusiasm, outgoing charm, energetic action sense. Bright warm color improves popularity, attraction and romantic luck.</p>
+                    <p><strong>🔥 火 · 热情与自信</strong><br>天生有魅力，行动力爆棚。红色/紫色让你在任何场合都闪耀迷人。</p>
                     <br>
-                    <p><strong>Earth Element</strong><br>Calm and steady, reliable responsibility, inclusive and tolerant character. Neutral simple color stabilizes daily fortune and family harmony luck.</p>
+                    <p><strong>⛰️ 土 · 稳定与滋养</strong><br>稳重可靠，包容体贴。大地色系（黄、棕、米）给你带来安全感和好人缘。</p>
                     <br>
-                    <p>Five elements generate and restrain mutually, deeply affect personal temperament, mood, social impression and long-term life fortune. Reasonable color matching can balance personal energy field.</p>
+                    <p>✨ 五行能量相生相克，影响着你的心情与人际。穿搭不只是打扮，更是对能量的温柔调频。</p>
                 </div>
             </div>
         </div>
 
-        <!-- Level3 Popup 2 生肖解读（不变） -->
+        <!-- Level3 Popup 2 生肖解读（故事版） -->
         <div class="global-mask" id="zodMask">
             <div class="popup-container">
                 <div class="pop-head">
-                    <h3>12 Zodiac Full Character & Fate Level3</h3>
-                    <span class="close-pop" onclick="closeZodiacLevel3()">× Close</span>
+                    <h3>⭐ 12生肖 · 能量与性格小传</h3>
+                    <span class="close-pop" onclick="closeZodiacLevel3()">💜 关闭</span>
                 </div>
                 <div class="pop-content">
-                    <p>Rat: Quick thinking, careful observation, good at capturing opportunity and wealth fortune</p>
-                    <p>Ox: Persistent and steady, down-to-earth style, stable life and long blessing</p>
-                    <p>Tiger: Powerful aura, natural leadership, easy to gain achievement and respect</p>
-                    <p>Rabbit: Elegant and mild, kind heart, outstanding popularity and peach blossom luck</p>
-                    <p>Dragon: Innate noble luck, smooth career path, noble people always help</p>
-                    <p>Snake: Calm wise, precise judgment, hidden wisdom and potential wealth</p>
-                    <p>Horse: Freedom and passion, wide social circle, travel and development luck</p>
-                    <p>Goat: Gentle kindness, artistic talent, peaceful and happy daily life</p>
-                    <p>Monkey: Smart flexible, quick response, numerous accidental lucky chances</p>
-                    <p>Rooster: Confident rigorous, outstanding personal ability, easy to be recognized</p>
-                    <p>Dog: Loyal sincere, strong sense of justice, stable family and friendship fortune</p>
-                    <p>Pig: Blessed innate fate, easy satisfaction, abundant material and happy mood</p>
+                    <p>🐭 鼠：机智灵敏，擅长捕捉机遇，财运与桃花运都不错。</p>
+                    <p>🐮 牛：踏实稳重，一步一个脚印，福气绵延，值得信赖。</p>
+                    <p>🐯 虎：天生领导力，气场强大，容易获得成就与尊重。</p>
+                    <p>🐰 兔：温柔优雅，心地善良，人缘极佳，贵人环绕。</p>
+                    <p>🐲 龙：自带贵气，事业运旺盛，总有贵人在关键时出现。</p>
+                    <p>🐍 蛇：智慧冷静，判断精准，深藏不露，暗藏财富机遇。</p>
+                    <p>🐴 马：自由奔放，热情洋溢，社交圈广，适合向外发展。</p>
+                    <p>🐏 羊：温和善良，富有艺术气息，生活平静喜乐。</p>
+                    <p>🐵 猴：聪明灵活，反应快，一生多奇遇，幸运常在。</p>
+                    <p>🐔 鸡：自信严谨，能力出众，容易被认可和信赖。</p>
+                    <p>🐶 狗：忠诚正直，责任感强，守护家人与朋友，福气稳固。</p>
+                    <p>🐷 猪：天生有福气，知足常乐，物质丰盈，心情愉悦。</p>
                 </div>
             </div>
         </div>
@@ -157,8 +157,8 @@
         <div class="global-mask" id="personalEleMask">
             <div class="popup-container">
                 <div class="pop-head">
-                    <h3>Your Exclusive Five Elements Deep Guide</h3>
-                    <span class="close-pop" onclick="closePersonalEleMask()">× Close</span>
+                    <h3>💖 给你的 · 专属能量指南</h3>
+                    <span class="close-pop" onclick="closePersonalEleMask()">💜 关闭</span>
                 </div>
                 <div class="pop-content" id="personalEleContent">
                     <!-- 内容会根据你的五行属性动态生成 -->
@@ -167,8 +167,8 @@
         </div>
 
         <div class="footer-tips">
-            <p>Standard Multi-level Skill Structure | Full Dimension Fortune & Fashion Matching</p>
-            <p>Accurate calculation based on traditional five elements and zodiac culture</p>
+            <p>✨ 穿搭是快乐的实验，你是自己生活的主角 ✨</p>
+            <p>🌙 所有建议，皆为温暖陪伴。最重要的是，你开心就好 🌙</p>
         </div>
     </div>
 
@@ -181,47 +181,52 @@
         function openPersonalEleMask(){document.getElementById("personalEleMask").style.display="flex";}
         function closePersonalEleMask(){document.getElementById("personalEleMask").style.display="none";}
 
-        // 专属五行解读（和通用版话术完全不同）
+        // 专属五行解读（和通用版话术完全不同，闺蜜语气）
         const elementExclusiveGuide = {
             "Metal": `
-                <p><strong>🔹 Your Element: Metal</strong></p>
-                <p>Core Traits: Determined, disciplined, and naturally authoritative. You thrive on clarity, structure, and results.</p>
-                <p>Style Power Colors: Silver, charcoal gray, crisp white, and cool metallic tones. These enhance your focus and command in the workplace.</p>
-                <p>Avoid Colors: Overly soft pastels or overly loud chaotic patterns that can weaken your decisive energy.</p>
-                <p>Pro Tip: Wearing structured fabrics (wool, linen blends) with clean lines amplifies your natural leadership aura.</p>
-                <p>Best Occasion: Work meetings, presentations, and high-pressure environments.</p>
+                <p>✨ 亲爱的，你是 <strong>金</strong> 能量特质的人 ✨</p>
+                <p>你天生有一种清晰、坚定的力量，做事有条理，不轻易动摇。你喜欢“对”的感觉，也追求效率和质感。</p>
+                <p>🎨 适合你的能量色：<strong>白色、银色、冷灰色、金属色系</strong>。这些颜色能强化你的决断力，让你在人群中自带气场。</p>
+                <p>🚫 可以偶尔避开：过于柔和的粉彩或过于花哨混乱的图案，它们可能会让你感觉“抓不住重点”。</p>
+                <p>💎 穿搭小灵感：利落的剪裁、有质感的羊毛或亚麻面料，非常衬你“做事干脆”的气质。</p>
+                <p>🌟 最佳登场时刻：工作会议、重要演讲、任何需要你展现出专业与掌控力的场合。</p>
+                <p>🌙 记住，你坚定又温柔的样子，本来就闪闪发光。</p>
             `,
             "Wood": `
-                <p><strong>🔹 Your Element: Wood</strong></p>
-                <p>Core Traits: Creative, growth-oriented, and deeply empathetic. You bring new ideas and energy to every situation.</p>
-                <p>Style Power Colors: Sage green, sky blue, and warm beige. These boost your creativity and interpersonal charm.</p>
-                <p>Avoid Colors: Dark, heavy black or overly sharp, high-contrast patterns that can dampen your natural vibrancy.</p>
-                <p>Pro Tip: Loose, flowing silhouettes (linen, cotton) with organic prints complement your adaptable nature.</p>
-                <p>Best Occasion: Brainstorming sessions, team collaboration, and social gatherings.</p>
+                <p>✨ 亲爱的，你是 <strong>木</strong> 能量特质的人 ✨</p>
+                <p>你有一种向上生长的生命力，温暖、有创意，也特别能理解别人的感受。就像春天的树，总在悄悄地发芽、开花。</p>
+                <p>🎨 适合你的能量色：<strong>绿色、青色、淡蓝色、米色</strong>。这些颜色会滋养你的灵感，让你身边的人如沐春风。</p>
+                <p>🚫 可以偶尔避开：过于沉重、全黑的搭配，可能会压住你灵动的能量。</p>
+                <p>💎 穿搭小灵感：宽松的亚麻衬衫，流动的半身裙，或者任何让你感觉“能呼吸”的衣物，都是你的好朋友。</p>
+                <p>🌟 最佳登场时刻：需要创意爆发的头脑风暴、团队合作、或是轻松的朋友聚会。</p>
+                <p>🌙 你温柔又有力量，本身就充满生机。</p>
             `,
             "Water": `
-                <p><strong>🔹 Your Element: Water</strong></p>
-                <p>Core Traits: Intuitive, adaptable, and emotionally intelligent. You read people and situations effortlessly.</p>
-                <p>Style Power Colors: Deep navy, soft indigo, and muted purple. These enhance your calm and intuitive energy.</p>
-                <p>Avoid Colors: Harsh, jarring neon tones or overly bright primary colors that can overstimulate your sensitive nature.</p>
-                <p>Pro Tip: Silky, fluid fabrics (satin, chiffon) with subtle sheen reflect your ability to flow with change.</p>
-                <p>Best Occasion: Negotiations, one-on-one conversations, and creative problem-solving.</p>
+                <p>✨ 亲爱的，你是 <strong>水</strong> 能量特质的人 ✨</p>
+                <p>你有一种说不出的智慧，直觉很准，像水一样，总能适应各种环境，并且看到事物深层的样子。</p>
+                <p>🎨 适合你的能量色：<strong>深海蓝、藏青色、墨绿、淡紫色</strong>。这些深邃、静谧的颜色，能让你感到平静，并提升你的直觉力。</p>
+                <p>🚫 可以偶尔避开：过于刺眼的荧光色或大面积的正红色，它们可能会让你感觉不太自在。</p>
+                <p>💎 穿搭小灵感：丝滑的丝质衬衫、轻柔的雪纺连衣裙，或带有流动感设计的配饰，都非常符合你的气质。</p>
+                <p>🌟 最佳登场时刻：需要深度沟通的对话、谈判、创作、或任何需要你发挥洞察力的时刻。</p>
+                <p>🌙 你的智慧如静水深流，温柔而坚定。</p>
             `,
             "Fire": `
-                <p><strong>🔹 Your Element: Fire</strong></p>
-                <p>Core Traits: Passionate, charismatic, and naturally magnetic. You light up every room you enter.</p>
-                <p>Style Power Colors: Vibrant red, warm orange, and sunny yellow. These amplify your confidence and attractiveness.</p>
-                <p>Avoid Colors: Dull, lifeless grays or overly muted tones that can suppress your outgoing energy.</p>
-                <p>Pro Tip: Bold accents (scarves, jewelry) or statement pieces work wonders for your naturally bold personality.</p>
-                <p>Best Occasion: Dates, parties, public speaking, and any situation where you want to shine.</p>
+                <p>✨ 亲爱的，你是 <strong>火</strong> 能量特质的人 ✨</p>
+                <p>你天生就是发光体，充满热情与感染力。有你在的地方，永远不会冷场，你总能点燃大家的情绪。</p>
+                <p>🎨 适合你的能量色：<strong>红色、紫色、橘色、亮粉色</strong>。这些颜色就像你的内心一样，热情、明媚、充满力量。</p>
+                <p>🚫 可以偶尔避开：暗淡的、没有生气的灰褐色系，它们可能会暂时盖住你耀眼的光芒。</p>
+                <p>💎 穿搭小灵感：一件亮色的配饰（围巾、包包），或是一个抢眼的妆容，都能让你成为焦点。但也要记住，你本身才是最大的亮点。</p>
+                <p>🌟 最佳登场时刻：约会、派对、演讲、任何你想要闪耀全场的场合。</p>
+                <p>🌙 你的热情能点亮他人，请继续这样发光。</p>
             `,
             "Earth": `
-                <p><strong>🔹 Your Element: Earth</strong></p>
-                <p>Core Traits: Stable, reliable, and deeply nurturing. You are the rock for everyone around you.</p>
-                <p>Style Power Colors: Warm brown, terracotta, olive green, and soft cream. These enhance your grounded and trustworthy energy.</p>
-                <p>Avoid Colors: Overly flashy, synthetic-looking fabrics or overly bright neon that can disrupt your calm presence.</p>
-                <p>Pro Tip: Natural, textured fabrics (knit, canvas) and classic silhouettes highlight your dependable nature.</p>
-                <p>Best Occasion: Team building, family gatherings, and long-term planning discussions.</p>
+                <p>✨ 亲爱的，你是 <strong>土</strong> 能量特质的人 ✨</p>
+                <p>你是“稳稳的幸福”本人。你包容、可靠，像大地一样滋养着身边的人。大家都喜欢向你靠近，因为在你身边感觉安心。</p>
+                <p>🎨 适合你的能量色：<strong>大地色系：米色、驼色、卡其色、陶土色、橄榄绿</strong>。这些颜色能衬托出你的敦厚与值得信赖的气质。</p>
+                <p>🚫 可以偶尔避开：过于浮夸闪亮或设计感过强的单品，简单的经典款更能体现你的内在质感。</p>
+                <p>💎 穿搭小灵感：柔软有质感的针织衫、舒适的阔腿裤，自然材质的棉麻衣物，让你看起来既优雅又放松。</p>
+                <p>🌟 最佳登场时刻：需要建立信任的场合、团队建设活动、家庭聚会。</p>
+                <p>🌙 你是他人温柔的依靠，也请记得好好滋养自己。</p>
             `
         };
 
@@ -237,13 +242,13 @@
             let birth = document.getElementById("birthVal").value;
             let gender = document.getElementById("genderVal").value;
             let scene = document.getElementById("sceneVal").value;
-            level2Box.innerHTML = `<div class="main-card loading-txt">Loading Level2 Complete Personal Analysis...</div>`;
+            level2Box.innerHTML = `<div class="main-card loading-txt">💫 稍等一下，Luna 正在感受你的能量场...</div>`;
             try{
                 let res = await fetch(`/api/index.js?birthDate=${birth}&gender=${gender}&scene=${scene}`);
                 let data = await res.json();
                 renderLevel2FullPage(data,gender,scene);
             }catch(err){
-                level2Box.innerHTML = `<div class="main-card" style="text-align:center;color:#ff9999">Data loading error, please retry</div>`;
+                level2Box.innerHTML = `<div class="main-card" style="text-align:center;color:#ff9999">🌙 哎呀，网络开小差了，请刷新一下页面再试试～</div>`;
             }
         })
 
@@ -253,39 +258,34 @@
             let eleName = elementMap[d.fiveElements] || d.fiveElements;
             let colorListHtml = d.suggestions.luckyColors.map(c=>`<span class="color-tag">${c}</span>`).join("");
 
-            // 动态生成专属五行指南内容（和通用版完全不同）
-            const personalEleContent = elementExclusiveGuide[eleName] || `<p>Your exclusive guide for ${eleName} will appear here.</p>`;
+            // 动态生成专属五行指南内容
+            const personalEleContent = elementExclusiveGuide[eleName] || `<p>✨ 亲爱的，你是独特的 ${eleName} 能量体 ✨<br>你的专属能量指南正在加载中，请稍后再试～</p>`;
             document.getElementById("personalEleContent").innerHTML = personalEleContent;
 
             level2Box.innerHTML = `
             <div class="main-card level-page">
-                <h2 class="page-title">Level 2 Standard Personal Comprehensive Analysis Report</h2>
+                <h2 class="page-title">💌 给 <span style="color:#f0b8ff;">${zodName}</span> 的能量穿搭报告</h2>
                 <div class="info-block">
-                    <h4 class="block-subtitle">Basic Life Attribute Information</h4>
-                    <p>Chinese Zodiac Sign: ${zodName}</p>
-                    <p>Born Five Elements Attribute: ${eleName}</p>
-                    <p>Applicable Life Scene: ${scene}</p>
-                    <p>Personal Gender Style: ${gender}</p>
+                    <h4 class="block-subtitle">🌙 你的能量基础信息</h4>
+                    <p>🐉 生肖：<strong>${zodName}</strong> &nbsp;|&nbsp; 🔥 五行能量：<strong>${eleName}</strong></p>
+                    <p>👗 今日场景：<strong>${scene}</strong> &nbsp;|&nbsp; 🌸 你的风格：<strong>${gender === 'Female' ? '温柔女生' : '阳光男生'}</strong></p>
                 </div>
                 <div class="info-block">
-                    <h4 class="block-subtitle">Top Exclusive Lucky Color Recommendation</h4>
-                    <p>${d.suggestions.recommendedColor}</p>
+                    <h4 class="block-subtitle">🎨 你的今日能量色盘</h4>
+                    <p><strong>${d.suggestions.recommendedColor}</strong></p>
+                    <div>${colorListHtml}</div>
                 </div>
                 <div class="info-block">
-                    <h4 class="block-subtitle">Scene Adaptive Dressing Guidance</h4>
+                    <h4 class="block-subtitle">💎 Luna 的穿搭悄悄话</h4>
                     <p>${d.suggestions.outfitAdvice}</p>
                 </div>
                 <div class="info-block">
-                    <h4 class="block-subtitle">Five Elements Daily Luck Maintenance Guide</h4>
+                    <h4 class="block-subtitle">🌿 给你的日常能量小提示</h4>
                     <p>${d.suggestions.fiveElementsTip}</p>
                 </div>
-                <div class="info-block">
-                    <h4 class="block-subtitle">All Matched Lucky Color Collection</h4>
-                    <div>${colorListHtml}</div>
-                </div>
                 <div class="level-nav" style="margin-top:20px;">
-                    <button class="level-btn" onclick="location.reload()">Back Level1 Homepage</button>
-                    <button class="level-btn" onclick="openPersonalEleMask()">View Your Element Exclusive Guide</button>
+                    <button class="level-btn" onclick="location.reload()">🏠 回到主页</button>
+                    <button class="level-btn" onclick="openPersonalEleMask()">💖 查看我的能量指南</button>
                 </div>
             </div>
             `;
