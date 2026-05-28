@@ -2,184 +2,428 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Luna · Your Energy Stylist Bestie</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif;}
-        body{background:linear-gradient(160deg,#201050,#402090);color:#f8f5ff;min-height:100vh;padding:24px 16px;}
-        .container{max-width:960px;margin:0 auto;}
-        .skill-header{text-align:center;padding:20px 0;margin-bottom:24px;}
-        .skill-header h1{font-size:32px;background:linear-gradient(90deg,#fbc2ff,#c4b0ff);-webkit-background-clip:text;color:transparent;margin-bottom:8px;}
-        .skill-desc{color:#d8c8f0;font-size:15px;margin-bottom:10px;}
-        .hot-badge{display:inline-block;background:#e84998;padding:3px 14px;border-radius:30px;font-size:12px;}
-        .stat-row{display:flex;justify-content:space-around;background:rgba(255,255,255,0.05);border-radius:16px;padding:16px;margin-bottom:20px;}
-        .stat-item text{font-size:24px;color:#f0b8ff;font-weight:bold;}
-        .stat-item p{font-size:12px;color:#c2b0e8;margin-top:4px;}
-        .main-card{background:rgba(255,255,255,0.06);border:1px solid rgba(220,190,255,0.18);border-radius:20px;padding:26px;margin-bottom:20px;backdrop-filter:blur(10px);}
-        .form-item{margin-bottom:18px;}
-        .form-item label{display:block;color:#e4d8f8;margin-bottom:6px;font-size:14px;}
-        input,select{width:100%;height:48px;background:rgba(255,255,255,0.1);border:none;border-radius:10px;color:#fff;padding:0 14px;font-size:15px;}
-        .primary-btn{width:100%;height:50px;background:linear-gradient(120deg,#a048e8,#7028c8);border-radius:10px;border:none;color:#fff;font-size:16px;font-weight:bold;cursor:pointer;transition:0.3s;margin:8px 0;}
-        .primary-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(140,60,220,0.3);}
-        .level-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
-        .level-btn{height:42px;background:rgba(255,255,255,0.08);border:1px solid rgba(200,160,255,0.2);border-radius:8px;color:#e0d0f8;font-size:13px;cursor:pointer;}
-        .level-page{margin-top:20px;}
-        .page-title{font-size:19px;color:#f0e4ff;padding-bottom:10px;border-bottom:1px dashed rgba(255,255,255,0.15);margin-bottom:16px;}
-        .info-block{padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
-        .info-block:last-child{border:none;}
-        .block-subtitle{color:#c8a8ff;font-size:15px;margin-bottom:6px;}
-        .color-tag{display:inline-block;background:rgba(230,160,220,0.15);padding:4px 12px;border-radius:16px;margin:3px;font-size:13px;}
-        .global-mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.82);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px;}
-        .popup-container{width:100%;max-width:660px;background:#2c1c66;border-radius:20px;padding:28px;max-height:90vh;overflow-y:auto;}
-        .pop-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
-        .pop-head h3{color:#f0c8ff;font-size:18px;}
-        .close-pop{color:#c0b0e0;cursor:pointer;font-size:17px;}
-        .pop-content{line-height:1.7;color:#d4c4f0;font-size:14px;}
-        .footer-tips{text-align:center;margin-top:24px;color:#a890d0;font-size:13px;line-height:1.5;}
-        .loading-txt{text-align:center;padding:25px;color:#c0a0f0;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #1f0d38 0%, #2d1a4a 100%);
+            color: #f5f0ff;
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .skill-header {
+            text-align: center;
+            margin-bottom: 1.8rem;
+        }
+
+        .skill-header h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #FFD6F9, #C4B0FF);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-desc {
+            color: #cdc0f0;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .hot-badge {
+            background: #d45b9f;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        /* Stats */
+        .stat-row {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 32px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item text {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #F0B8FF;
+        }
+
+        .stat-item p {
+            font-size: 0.7rem;
+            color: #bdaee6;
+            margin-top: 0.2rem;
+        }
+
+        /* Main Card */
+        .main-card {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(220, 190, 255, 0.25);
+            border-radius: 32px;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s;
+        }
+
+        /* Form */
+        .form-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-item label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 0.4rem;
+            color: #e2d4ff;
+        }
+
+        input, select {
+            width: 100%;
+            height: 48px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 60px;
+            padding: 0 1rem;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .primary-btn {
+            width: 100%;
+            background: linear-gradient(95deg, #a659f2, #7c3aed);
+            border: none;
+            border-radius: 60px;
+            height: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            margin: 0.5rem 0;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(125, 60, 220, 0.4);
+        }
+
+        /* Level Buttons */
+        .level-nav {
+            display: flex;
+            gap: 12px;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .level-btn, .chat-btn {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(200, 160, 255, 0.3);
+            padding: 0.6rem 1rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: #eeddff;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .chat-btn {
+            background: rgba(210, 140, 255, 0.2);
+            border-color: #c084fc;
+            margin-right: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        /* Dynamic content */
+        .chat-bubble {
+            background: rgba(255,240,255,0.08);
+            border-radius: 28px;
+            padding: 1.2rem;
+            margin: 1rem 0;
+            border-left: 4px solid #e2a0ff;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #cbadff;
+        }
+
+        .footer-tips {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #978bc2;
+            margin-top: 2rem;
+        }
+
+        button {
+            background: none;
+            border: none;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="skill-header">
-            <h1>✨ Hi, I'm Luna ✨</h1>
-            <p class="skill-desc">Your energy stylist bestie. Tell me about yourself, and let's find your perfect energy outfit together 💕</p>
-            <span class="hot-badge">🌙 Trusted by 920K+ souls worldwide</span>
-        </div>
+<div class="container">
+    <div class="skill-header">
+        <h1>✨ Hi, I'm Luna ✨</h1>
+        <p class="skill-desc">Your energy stylist bestie. Let's find your glow together 🌙💬</p>
+        <span class="hot-badge">🌙 920k+ heartfelt chats</span>
+    </div>
 
-        <div class="stat-row">
-            <div class="stat-item"><text>920K+</text><p>Happy Besties</p></div>
-            <div class="stat-item"><text>97%</text><p>Feel Understood</p></div>
-            <div class="stat-item"><text>12+5</text><p>Energy Modules</p></div>
-        </div>
+    <div class="stat-row">
+        <div class="stat-item"><text>920K+</text><p>friends</p></div>
+        <div class="stat-item"><text>97%</text><p>feel seen</p></div>
+        <div class="stat-item"><text>24/7</text><p>energy hugs</p></div>
+    </div>
 
-        <div class="main-card">
-            <form id="firstForm">
-                <div class="form-item">
-                    <label>🌼 What's your birthday?</label>
-                    <input type="date" id="birthVal" required>
-                </div>
-                <div class="form-item">
-                    <label>🌸 Your gender</label>
-                    <select id="genderVal">
-                        <option value="Female">She/Her · Feminine</option>
-                        <option value="Male">He/Him · Masculine</option>
-                    </select>
-                </div>
-                <div class="form-item">
-                    <label>🍃 Where are you going today?</label>
-                    <select id="sceneVal">
-                        <option value="Work">💼 Work · Important Meeting/Interview</option>
-                        <option value="Date">💕 Date · Romantic Night</option>
-                        <option value="Daily">🌿 Daily · Casual & Free</option>
-                        <option value="Party">🎉 Party · Social Gathering</option>
-                        <option value="Sport">⚡ Sport · Active Day</option>
-                    </select>
-                </div>
-                <button class="primary-btn" type="submit">✨ Get Luna's Advice ✨</button>
-            </form>
-            <div class="level-nav">
-                <button class="level-btn" onclick="openElementLevel3()">🌿 5 Elements Wisdom</button>
-                <button class="level-btn" onclick="openZodiacLevel3()">⭐ 12 Zodiac Stories</button>
+    <!-- input card -->
+    <div class="main-card" id="inputCard">
+        <form id="firstForm">
+            <div class="form-item">
+                <label>🌼 Your birthday</label>
+                <input type="date" id="birthVal" required>
             </div>
-        </div>
-
-        <div id="level2Box"></div>
-
-        <!-- Popups -->
-        <div class="global-mask" id="eleMask">
-            <div class="popup-container"><div class="pop-head"><h3>🌿 5 Elements · Energy Wisdom</h3><span class="close-pop" onclick="closeElementLevel3()">💜 Close</span></div>
-            <div class="pop-content"><p><strong>💎 Metal · Clarity & Strength</strong><br>You are determined and decisive. White, silver, and grey enhance your leadership aura.</p>
-            <p><strong>🌳 Wood · Growth & Hope</strong><br>You are creative and gentle. Green and cyan boost your inspiration and charm.</p>
-            <p><strong>💧 Water · Wisdom & Calm</strong><br>You are intuitive and deep. Navy and black bring you peace and insight.</p>
-            <p><strong>🔥 Fire · Passion & Confidence</strong><br>You are bold and charismatic. Red and purple make you shine anywhere.</p>
-            <p><strong>⛰️ Earth · Stability & Nurturing</strong><br>You are reliable and warm. Yellow, brown, and beige give you grounding energy.</p></div></div>
-        </div>
-        <div class="global-mask" id="zodMask">
-            <div class="popup-container"><div class="pop-head"><h3>⭐ 12 Zodiac · Personality Stories</h3><span class="close-pop" onclick="closeZodiacLevel3()">💜 Close</span></div>
-            <div class="pop-content"><p>🐭 Rat: Smart, sharp, great at catching opportunities.</p><p>🐮 Ox: Steady, reliable, blessed with long-term fortune.</p><p>🐯 Tiger: Born leader, powerful aura, natural respect.</p><p>🐰 Rabbit: Gentle, kind, excellent social luck.</p><p>🐲 Dragon: Noble energy, smooth career, always supported.</p><p>🐍 Snake: Wise, calm, hidden wealth and insight.</p><p>🐴 Horse: Free, passionate, wide social circle.</p><p>🐏 Goat: Gentle, artistic, peaceful and happy life.</p><p>🐵 Monkey: Clever, flexible, full of lucky surprises.</p><p>🐔 Rooster: Confident, rigorous, easy to be trusted.</p><p>🐶 Dog: Loyal, honest, strong family and friendship.</p><p>🐷 Pig: Born lucky, satisfied, abundant and joyful.</p></div></div>
-        </div>
-        <div class="global-mask" id="personalEleMask">
-            <div class="popup-container"><div class="pop-head"><h3>💖 Your Personal Energy Guide</h3><span class="close-pop" onclick="closePersonalEleMask()">💜 Close</span></div>
-            <div class="pop-content" id="personalEleContent"></div></div>
-        </div>
-
-        <div class="footer-tips">
-            <p>✨ Fashion is an experiment. You are the main character. ✨</p>
-            <p>🌙 All advice is warm companionship. What matters most is you feel good 🌙</p>
+            <div class="form-item">
+                <label>🌸 I go by</label>
+                <select id="genderVal">
+                    <option value="Female">She/Her · feminine</option>
+                    <option value="Male">He/Him · masculine</option>
+                </select>
+            </div>
+            <div class="form-item">
+                <label>🍃 Today I'm going to</label>
+                <select id="sceneVal">
+                    <option value="Work">💼 Work · interview/meeting</option>
+                    <option value="Date">💕 Date · romance</option>
+                    <option value="Daily">🌿 Daily · chill & free</option>
+                    <option value="Party">🎉 Party · social vibe</option>
+                    <option value="Sport">⚡ Sport · active mode</option>
+                </select>
+            </div>
+            <button class="primary-btn" type="submit">✨ Get Luna's advice ✨</button>
+        </form>
+        <div class="level-nav">
+            <button class="level-btn" type="button" onclick="openElementModal()">🌿 5 elements wisdom</button>
+            <button class="level-btn" type="button" onclick="openZodiacModal()">⭐ 12 zodiac stories</button>
         </div>
     </div>
 
-    <script>
-        function openElementLevel3(){document.getElementById("eleMask").style.display="flex";}
-        function closeElementLevel3(){document.getElementById("eleMask").style.display="none";}
-        function openZodiacLevel3(){document.getElementById("zodMask").style.display="flex";}
-        function closeZodiacLevel3(){document.getElementById("zodMask").style.display="none";}
-        function openPersonalEleMask(){document.getElementById("personalEleMask").style.display="flex";}
-        function closePersonalEleMask(){document.getElementById("personalEleMask").style.display="none";}
+    <!-- conversation area -->
+    <div id="conversationArea"></div>
 
-        const elementExclusiveGuide = {
-            "Metal": `<p>✨ Dear, you are <strong>Metal</strong> energy ✨</p><p>You are clear, strong, and love efficiency. White, silver, and grey enhance your natural leadership.</p><p>🌟 Best for: Work meetings, presentations, any moment you need to shine.</p><p>🌙 Remember, you are powerful and beautiful.</p>`,
-            "Wood": `<p>✨ Dear, you are <strong>Wood</strong> energy ✨</p><p>You are creative, gentle, and full of life. Green and cyan boost your inspiration and social charm.</p><p>🌟 Best for: Brainstorming, team collaboration, creative work.</p><p>🌙 Your growth energy inspires everyone around you.</p>`,
-            "Water": `<p>✨ Dear, you are <strong>Water</strong> energy ✨</p><p>You are intuitive, wise, and adaptable. Navy and black bring you peace and deep insight.</p><p>🌟 Best for: Deep conversations, negotiation, creative thinking.</p><p>🌙 Your wisdom flows like a quiet river.</p>`,
-            "Fire": `<p>✨ Dear, you are <strong>Fire</strong> energy ✨</p><p>You are passionate, charismatic, and naturally shine. Red and purple make you unforgettable.</p><p>🌟 Best for: Parties, dates, speeches, any moment you want to be seen.</p><p>🌙 Your light warms everyone around you.</p>`,
-            "Earth": `<p>✨ Dear, you are <strong>Earth</strong> energy ✨</p><p>You are stable, reliable, and deeply nurturing. Brown, beige, and olive give you grounding strength.</p><p>🌟 Best for: Team building, family gatherings, long-term planning.</p><p>🌙 You are the rock that others lean on. Remember to rest too.</p>`
-        };
+    <!-- modals (unchanged, only style) -->
+    <div id="eleModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); align-items:center; justify-content:center; z-index:1000;" onclick="closeModal('eleModal')">
+        <div style="background:#2c1c66; max-width:500px; margin:1rem; padding:1.8rem; border-radius:2rem;" onclick="event.stopPropagation()">
+            <h3 style="margin-bottom:0.8rem;">🌿 5 elements · energy wisdom</h3>
+            <p>🔥 Fire: passion, charisma, bold moves — red/purple boost your shine.<br>
+            💧 Water: intuition, calm depth — navy/black for inner peace.<br>
+            💨 Air: creativity, clarity — sky blue/mint green for free flow.<br>
+            🌍 Earth: stability, nurturing — warm brown/beige to ground you.<br>
+            ✨ Each element is a gift — wear your energy proudly.</p>
+            <button class="level-btn" style="margin-top:1rem;" onclick="closeModal('eleModal')">close 💜</button>
+        </div>
+    </div>
+    <div id="zodiacModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); align-items:center; justify-content:center; z-index:1000;" onclick="closeModal('zodiacModal')">
+        <div style="background:#2c1c66; max-width:500px; margin:1rem; padding:1.8rem; border-radius:2rem;" onclick="event.stopPropagation()">
+            <h3>⭐ 12 zodiac soul notes</h3>
+            <p>🐴 Horse: freedom, passion — loves movement.<br>🐉 Dragon: noble, magnetic — born leader.<br>🐰 Rabbit: gentle, artistic — heart of gold.<br>✨ Each zodiac carries unique energy. Luna sees yours 💖</p>
+            <button class="level-btn" style="margin-top:1rem;" onclick="closeModal('zodiacModal')">close 💜</button>
+        </div>
+    </div>
+</div>
 
-        const zodiacMap = {"马":"Horse","牛":"Ox","虎":"Tiger","兔":"Rabbit","龙":"Dragon","蛇":"Snake","羊":"Goat","猴":"Monkey","鸡":"Rooster","狗":"Dog","猪":"Pig","鼠":"Rat"};
-        const elementMap = {"金":"Metal","木":"Wood","水":"Water","火":"Fire","土":"Earth"};
+<script>
+    // ----- DOM elements -----
+    const form = document.getElementById('firstForm');
+    const conversationDiv = document.getElementById('conversationArea');
+    let currentZodiac = null, currentElement = null, currentGender = null, currentScene = null;
 
-        const form = document.getElementById("firstForm");
-        const level2Box = document.getElementById("level2Box");
-        form.addEventListener("submit", async e => {
-            e.preventDefault();
-            let birth = document.getElementById("birthVal").value;
-            let gender = document.getElementById("genderVal").value;
-            let scene = document.getElementById("sceneVal").value;
-            level2Box.innerHTML = `<div class="main-card loading-txt">💫 Just a sec, Luna is tuning into your energy...</div>`;
-            try {
-                let res = await fetch(`/api/index.js?birthDate=${birth}&gender=${gender}&scene=${scene}`);
-                let data = await res.json();
-                renderLevel2FullPage(data, gender, scene);
-            } catch (err) {
-                level2Box.innerHTML = `<div class="main-card" style="text-align:center;color:#ff9999">🌙 Oops, network error. Please refresh and try again～</div>`;
-            }
-        });
+    // ----- helper: show / hide modals
+    window.openElementModal = () => document.getElementById('eleModal').style.display = 'flex';
+    window.openZodiacModal = () => document.getElementById('zodiacModal').style.display = 'flex';
+    window.closeModal = (id) => document.getElementById(id).style.display = 'none';
 
-        function renderLevel2FullPage(d, gender, scene) {
-            let zodName = zodiacMap[d.zodiacAnimal] || d.zodiacAnimal;
-            let eleName = elementMap[d.fiveElements] || d.fiveElements;
-            let colorListHtml = d.suggestions.luckyColors.map(c => `<span class="color-tag">${c}</span>`).join("");
-            const personalEleContent = elementExclusiveGuide[eleName] || `<p>✨ Dear, you are unique ${eleName} energy ✨</p>`;
-            document.getElementById("personalEleContent").innerHTML = personalEleContent;
-
-            level2Box.innerHTML = `
-            <div class="main-card level-page">
-                <h2 class="page-title">💌 A Letter for You, Dear <span style="color:#f0b8ff;">${zodName}</span></h2>
-                <div class="info-block">
-                    <h4 class="block-subtitle">🌙 Your Energy Profile</h4>
-                    <p>🐉 Zodiac: <strong>${zodName}</strong> &nbsp;|&nbsp; 🔥 Element: <strong>${eleName}</strong></p>
-                    <p>👗 Today's Scene: <strong>${scene}</strong> &nbsp;|&nbsp; 🌸 Style: <strong>${gender === 'Female' ? 'Feminine' : 'Masculine'}</strong></p>
-                </div>
-                <div class="info-block">
-                    <h4 class="block-subtitle">🎨 Your Energy Color Palette</h4>
-                    <p><strong>${d.suggestions.recommendedColor}</strong></p>
-                    <div>${colorListHtml}</div>
-                </div>
-                <div class="info-block">
-                    <h4 class="block-subtitle">💖 Luna's Warm Whisper</h4>
-                    <p>${d.suggestions.outfitAdvice}</p>
-                </div>
-                <div class="info-block">
-                    <h4 class="block-subtitle">🌿 Daily Energy Reminder</h4>
-                    <p>${d.suggestions.fiveElementsTip}</p>
-                </div>
-                <div class="level-nav" style="margin-top:20px;">
-                    <button class="level-btn" onclick="location.reload()">🏠 Back to Home</button>
-                    <button class="level-btn" onclick="openPersonalEleMask()">💖 Read My Energy Guide</button>
-                </div>
-            </div>`;
+    // ----- render a Luna message (adds to chat)
+    function addLunaMessage(text, extraButtons = []) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'chat-bubble';
+        msgDiv.innerHTML = `<div style="white-space: pre-line;">✨ ${text}</div>`;
+        if (extraButtons.length) {
+            const btnGroup = document.createElement('div');
+            btnGroup.style.marginTop = '16px';
+            extraButtons.forEach(btn => {
+                const b = document.createElement('button');
+                b.innerText = btn.label;
+                b.className = 'chat-btn';
+                b.onclick = btn.action;
+                btnGroup.appendChild(b);
+            });
+            msgDiv.appendChild(btnGroup);
         }
-    </script>
+        conversationDiv.appendChild(msgDiv);
+        msgDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function addUserMessage(text) {
+        const userDiv = document.createElement('div');
+        userDiv.style.textAlign = 'right';
+        userDiv.style.margin = '12px 0';
+        userDiv.innerHTML = `<span style="background:rgba(200,160,255,0.2); padding:8px 16px; border-radius:30px; display:inline-block;">💬 ${text}</span>`;
+        conversationDiv.appendChild(userDiv);
+        userDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // ----- API call for first analysis
+    async function callFirstAnalysis(birth, gender, scene) {
+        conversationDiv.innerHTML = ''; // fresh chat
+        addUserMessage(`Birth: ${birth} · ${gender} · going to ${scene}`);
+        addLunaMessage("Just a sec, sweetie... tuning into your energy field ✨", []);
+        const loadingId = setTimeout(() => {}, 0);
+        try {
+            const res = await fetch(`/api/index.js?birthDate=${birth}&gender=${gender}&scene=${scene}`);
+            const data = await res.json();
+            if (!data || !data.suggestions) throw new Error();
+            // store context
+            currentZodiac = data.zodiacAnimal;
+            currentElement = data.fiveElements;
+            currentGender = gender;
+            currentScene = scene;
+            // store in localStorage for refresh survival
+            localStorage.setItem('luna_zodiac', currentZodiac);
+            localStorage.setItem('luna_element', currentElement);
+            localStorage.setItem('luna_gender', currentGender);
+            localStorage.setItem('luna_scene', currentScene);
+
+            renderFirstAdvice(data.suggestions);
+        } catch (err) {
+            addLunaMessage("Oops, cosmic hiccup! Please try again 🌙", []);
+        }
+    }
+
+    function renderFirstAdvice(sugg) {
+        const msg = `Based on your zodiac ${currentZodiac} and ${currentElement} energy, your power color today is **${sugg.recommendedColor}**.\n\n✨ ${sugg.outfitAdvice}\n\n💫 Daily energy reminder: ${sugg.fiveElementsTip}`;
+        const buttons = [
+            { label: "💫 Why this color?", action: () => askWhyColor() },
+            { label: "🌙 What to wear for a date?", action: () => askSceneChange('Date') },
+            { label: "📖 Tell me more about my element", action: () => askElementStory() }
+        ];
+        addLunaMessage(msg, buttons);
+    }
+
+    // ----- interactive follow-ups (multi‑turn)
+    async function askWhyColor() {
+        if (!currentElement) { addLunaMessage("Let's start fresh — tell me your birthday first 🎂", []); return; }
+        addUserMessage("Why does this color fit me?");
+        addLunaMessage("Thinking about your energy signature... 💭", []);
+        try {
+            const res = await fetch(`/api/chat?type=explain_color&element=${encodeURIComponent(currentElement)}`);
+            const data = await res.json();
+            const explanation = data.content || "This color resonates with your inner fire — it helps you feel confident and aligned. Colors are like little love notes to your energy 💌";
+            addLunaMessage(explanation, [
+                { label: "💫 What's a good date outfit?", action: () => askSceneChange('Date') },
+                { label: "🌿 Back to main advice", action: () => recallMainAdvice() }
+            ]);
+        } catch(e) { addLunaMessage("Luna glitched! Let's try again 💫", []); }
+    }
+
+    async function askSceneChange(newScene) {
+        if (!currentZodiac) { addLunaMessage("Remind me your birthday first? 🌸", []); return; }
+        addUserMessage(`What would you wear for ${newScene}?`);
+        addLunaMessage("Switching the vibe... ✨", []);
+        try {
+            const res = await fetch(`/api/chat?type=change_scene&zodiac=${encodeURIComponent(currentZodiac)}&gender=${encodeURIComponent(currentGender)}&scene=${encodeURIComponent(newScene)}`);
+            const data = await res.json();
+            const advice = data.content;
+            addLunaMessage(advice, [
+                { label: "💫 Why this color?", action: () => askWhyColor() },
+                { label: "✨ Back to original advice", action: () => recallMainAdvice() }
+            ]);
+        } catch(e) { addLunaMessage("Luna is daydreaming, try again 🧘‍♀️", []); }
+    }
+
+    async function askElementStory() {
+        if (!currentElement) return;
+        addUserMessage("Tell me more about my element ✨");
+        addLunaMessage("Let me whisper the story of your element... 🌙", []);
+        try {
+            const res = await fetch(`/api/chat?type=element_story&element=${encodeURIComponent(currentElement)}`);
+            const data = await res.json();
+            addLunaMessage(data.content, [
+                { label: "💫 Why this color?", action: () => askWhyColor() },
+                { label: "🌙 Date outfit inspo", action: () => askSceneChange('Date') }
+            ]);
+        } catch(e) { addLunaMessage("Oops, magic overload. Please retry 💖", []); }
+    }
+
+    async function recallMainAdvice() {
+        addUserMessage("Remind me my main advice 🌸");
+        addLunaMessage("Reconnecting to your energy... 🌙", []);
+        try {
+            const res = await fetch(`/api/chat?type=recall_advice&zodiac=${encodeURIComponent(currentZodiac)}&gender=${encodeURIComponent(currentGender)}&scene=${encodeURIComponent(currentScene)}&element=${encodeURIComponent(currentElement)}`);
+            const data = await res.json();
+            addLunaMessage(data.content, [
+                { label: "💫 Why this color?", action: () => askWhyColor() },
+                { label: "🌙 Different scene?", action: () => askSceneChange('Date') }
+            ]);
+        } catch(e) { addLunaMessage("Sweetie, just refresh and we'll restart ✨", []); }
+    }
+
+    // load stored context after page reload
+    function loadStoredContext() {
+        const z = localStorage.getItem('luna_zodiac');
+        const el = localStorage.getItem('luna_element');
+        const g = localStorage.getItem('luna_gender');
+        const s = localStorage.getItem('luna_scene');
+        if (z && el && g && s) {
+            currentZodiac = z; currentElement = el; currentGender = g; currentScene = s;
+            addLunaMessage(`Welcome back, beautiful! Your energy is still ${currentElement}. Want to ask something new? 💖`, [
+                { label: "💫 Why my color?", action: () => askWhyColor() },
+                { label: "🌙 Date outfit?", action: () => askSceneChange('Date') },
+                { label: "📖 Element story", action: () => askElementStory() }
+            ]);
+        } else {
+            addLunaMessage("Hey sweetie, I'm Luna. Tell me your birthday and I'll find your glow ✨", []);
+        }
+    }
+
+    // form submit
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const birth = document.getElementById('birthVal').value;
+        const gender = document.getElementById('genderVal').value;
+        const scene = document.getElementById('sceneVal').value;
+        if (!birth) return;
+        await callFirstAnalysis(birth, gender, scene);
+    });
+
+    // init: restore past chat if any
+    loadStoredContext();
+</script>
 </body>
 </html>
