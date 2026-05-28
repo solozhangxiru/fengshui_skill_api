@@ -11,25 +11,20 @@
             box-sizing: border-box;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
-
         body {
             background: linear-gradient(145deg, #1f0d38 0%, #2d1a4a 100%);
             color: #f5f0ff;
             min-height: 100vh;
             padding: 1.5rem 1rem;
         }
-
         .container {
             max-width: 680px;
             margin: 0 auto;
         }
-
-        /* Header */
         .skill-header {
             text-align: center;
             margin-bottom: 1.8rem;
         }
-
         .skill-header h1 {
             font-size: 2.2rem;
             background: linear-gradient(135deg, #FFD6F9, #C4B0FF);
@@ -38,13 +33,11 @@
             color: transparent;
             margin-bottom: 0.5rem;
         }
-
         .skill-desc {
             color: #cdc0f0;
             font-size: 1rem;
             margin-bottom: 0.8rem;
         }
-
         .hot-badge {
             background: #d45b9f;
             padding: 0.2rem 1rem;
@@ -53,8 +46,6 @@
             font-weight: 500;
             display: inline-block;
         }
-
-        /* Stats */
         .stat-row {
             display: flex;
             justify-content: space-around;
@@ -64,24 +55,19 @@
             margin-bottom: 1.5rem;
             backdrop-filter: blur(4px);
         }
-
         .stat-item {
             text-align: center;
         }
-
         .stat-item text {
             font-size: 1.6rem;
             font-weight: bold;
             color: #F0B8FF;
         }
-
         .stat-item p {
             font-size: 0.7rem;
             color: #bdaee6;
             margin-top: 0.2rem;
         }
-
-        /* Main Card */
         .main-card {
             background: rgba(255, 255, 255, 0.07);
             border: 1px solid rgba(220, 190, 255, 0.25);
@@ -91,19 +77,15 @@
             backdrop-filter: blur(8px);
             transition: all 0.2s;
         }
-
-        /* Form */
         .form-item {
             margin-bottom: 1.2rem;
         }
-
         .form-item label {
             display: block;
             font-size: 0.85rem;
             margin-bottom: 0.4rem;
             color: #e2d4ff;
         }
-
         input, select {
             width: 100%;
             height: 48px;
@@ -114,7 +96,6 @@
             color: white;
             font-size: 1rem;
         }
-
         .primary-btn {
             width: 100%;
             background: linear-gradient(95deg, #a659f2, #7c3aed);
@@ -128,20 +109,16 @@
             transition: 0.2s;
             margin: 0.5rem 0;
         }
-
         .primary-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(125, 60, 220, 0.4);
         }
-
-        /* Level Buttons */
         .level-nav {
             display: flex;
             gap: 12px;
             margin-top: 1rem;
             justify-content: center;
         }
-
         .level-btn, .chat-btn {
             background: rgba(255,255,255,0.08);
             border: 1px solid rgba(200, 160, 255, 0.3);
@@ -152,15 +129,12 @@
             cursor: pointer;
             transition: 0.2s;
         }
-
         .chat-btn {
             background: rgba(210, 140, 255, 0.2);
             border-color: #c084fc;
             margin-right: 0.6rem;
             margin-top: 1rem;
         }
-
-        /* Dynamic content */
         .chat-bubble {
             background: rgba(255,240,255,0.08);
             border-radius: 28px;
@@ -168,32 +142,36 @@
             margin: 1rem 0;
             border-left: 4px solid #e2a0ff;
         }
-
         .loading {
             text-align: center;
             padding: 2rem;
             color: #cbadff;
         }
-
         .footer-tips {
             text-align: center;
             font-size: 0.75rem;
             color: #978bc2;
             margin-top: 2rem;
         }
-
+        .explore-content {
+            background: rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 16px;
+            min-height: 100px;
+        }
         button {
             background: none;
             border: none;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="skill-header">
         <h1>✨ Hi, I'm Luna ✨</h1>
         <p class="skill-desc">Your energy stylist bestie. Let's find your glow together 🌙💬</p>
-        <span class="hot-badge">🌙 920k+ heartfelt chats</span>
+        <span class="hot-badge">🌙 Trusted by 920K+ souls</span>
     </div>
 
     <div class="stat-row">
@@ -202,7 +180,7 @@
         <div class="stat-item"><text>24/7</text><p>energy hugs</p></div>
     </div>
 
-    <!-- input card -->
+    <!-- Main input card -->
     <div class="main-card" id="inputCard">
         <form id="firstForm">
             <div class="form-item">
@@ -234,10 +212,44 @@
         </div>
     </div>
 
-    <!-- conversation area -->
+    <!-- Explore section -->
+    <div class="main-card" id="exploreSection">
+        <h3 style="margin-bottom: 12px;">📖 Explore the energy world</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;">
+            <button class="level-btn" onclick="showElementPanel()">🌿 5 elements tree</button>
+            <button class="level-btn" onclick="showZodiacPanel()">⭐ Zodiac stories</button>
+            <button class="level-btn" onclick="showDailyInspiration()">💫 Daily inspiration</button>
+        </div>
+        <div id="exploreContent" class="explore-content">
+            <p style="color: #cdc0f0;">✨ Click any button above — Luna will share some magic with you ✨</p>
+        </div>
+    </div>
+
+    <!-- Daily section (check-in & mood) -->
+    <div class="main-card" id="dailySection">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <div>
+                <span id="streakDisplay">🔥 streak 0 days</span>
+            </div>
+            <button class="primary-btn" id="checkinBtn" style="width: auto; padding: 0 24px;">✨ Check in</button>
+        </div>
+        <div style="margin-top: 16px;">
+            <p style="margin-bottom: 8px;">💭 How are you feeling today?</p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <button class="chat-btn mood-btn" data-mood="😊 Happy">😊 Happy</button>
+                <button class="chat-btn mood-btn" data-mood="😌 Calm">😌 Calm</button>
+                <button class="chat-btn mood-btn" data-mood="😢 Low">😢 Low</button>
+                <button class="chat-btn mood-btn" data-mood="⚡ Anxious">⚡ Anxious</button>
+                <button class="chat-btn mood-btn" data-mood="💕 Romantic">💕 Romantic</button>
+            </div>
+            <div id="moodMessage" style="margin-top: 12px; color: #cdc0f0;"></div>
+        </div>
+    </div>
+
+    <!-- Conversation area -->
     <div id="conversationArea"></div>
 
-    <!-- modals (unchanged, only style) -->
+    <!-- Modals -->
     <div id="eleModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); align-items:center; justify-content:center; z-index:1000;" onclick="closeModal('eleModal')">
         <div style="background:#2c1c66; max-width:500px; margin:1rem; padding:1.8rem; border-radius:2rem;" onclick="event.stopPropagation()">
             <h3 style="margin-bottom:0.8rem;">🌿 5 elements · energy wisdom</h3>
@@ -263,13 +275,17 @@
     const form = document.getElementById('firstForm');
     const conversationDiv = document.getElementById('conversationArea');
     let currentZodiac = null, currentElement = null, currentGender = null, currentScene = null;
+    let userId = localStorage.getItem('luna_user_id');
+    if (!userId) {
+        userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 8);
+        localStorage.setItem('luna_user_id', userId);
+    }
 
-    // ----- helper: show / hide modals
+    // ----- helper functions -----
     window.openElementModal = () => document.getElementById('eleModal').style.display = 'flex';
     window.openZodiacModal = () => document.getElementById('zodiacModal').style.display = 'flex';
     window.closeModal = (id) => document.getElementById(id).style.display = 'none';
 
-    // ----- render a Luna message (adds to chat)
     function addLunaMessage(text, extraButtons = []) {
         const msgDiv = document.createElement('div');
         msgDiv.className = 'chat-bubble';
@@ -299,27 +315,23 @@
         userDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    // ----- API call for first analysis
+    // ----- first analysis call -----
     async function callFirstAnalysis(birth, gender, scene) {
-        conversationDiv.innerHTML = ''; // fresh chat
+        conversationDiv.innerHTML = '';
         addUserMessage(`Birth: ${birth} · ${gender} · going to ${scene}`);
         addLunaMessage("Just a sec, sweetie... tuning into your energy field ✨", []);
-        const loadingId = setTimeout(() => {}, 0);
         try {
-            const res = await fetch(`/api/index.js?birthDate=${birth}&gender=${gender}&scene=${scene}`);
+            const res = await fetch(`/api/index.js?birthDate=${birth}&gender=${gender}&scene=${scene}&userId=${userId}`);
             const data = await res.json();
             if (!data || !data.suggestions) throw new Error();
-            // store context
             currentZodiac = data.zodiacAnimal;
             currentElement = data.fiveElements;
             currentGender = gender;
             currentScene = scene;
-            // store in localStorage for refresh survival
             localStorage.setItem('luna_zodiac', currentZodiac);
             localStorage.setItem('luna_element', currentElement);
             localStorage.setItem('luna_gender', currentGender);
             localStorage.setItem('luna_scene', currentScene);
-
             renderFirstAdvice(data.suggestions);
         } catch (err) {
             addLunaMessage("Oops, cosmic hiccup! Please try again 🌙", []);
@@ -331,21 +343,21 @@
         const buttons = [
             { label: "💫 Why this color?", action: () => askWhyColor() },
             { label: "🌙 What to wear for a date?", action: () => askSceneChange('Date') },
-            { label: "📖 Tell me more about my element", action: () => askElementStory() }
+            { label: "📖 Tell me more about my element", action: () => askElementStory() },
+            { label: "📸 Share my energy card", action: () => generateEnergyCard(sugg) }
         ];
         addLunaMessage(msg, buttons);
     }
 
-    // ----- interactive follow-ups (multi‑turn)
+    // ----- follow-up interactions -----
     async function askWhyColor() {
         if (!currentElement) { addLunaMessage("Let's start fresh — tell me your birthday first 🎂", []); return; }
         addUserMessage("Why does this color fit me?");
         addLunaMessage("Thinking about your energy signature... 💭", []);
         try {
-            const res = await fetch(`/api/chat?type=explain_color&element=${encodeURIComponent(currentElement)}`);
+            const res = await fetch(`/api/index.js?type=explain_color&element=${encodeURIComponent(currentElement)}&userId=${userId}`);
             const data = await res.json();
-            const explanation = data.content || "This color resonates with your inner fire — it helps you feel confident and aligned. Colors are like little love notes to your energy 💌";
-            addLunaMessage(explanation, [
+            addLunaMessage(data.content, [
                 { label: "💫 What's a good date outfit?", action: () => askSceneChange('Date') },
                 { label: "🌿 Back to main advice", action: () => recallMainAdvice() }
             ]);
@@ -357,10 +369,9 @@
         addUserMessage(`What would you wear for ${newScene}?`);
         addLunaMessage("Switching the vibe... ✨", []);
         try {
-            const res = await fetch(`/api/chat?type=change_scene&zodiac=${encodeURIComponent(currentZodiac)}&gender=${encodeURIComponent(currentGender)}&scene=${encodeURIComponent(newScene)}`);
+            const res = await fetch(`/api/index.js?type=change_scene&zodiac=${encodeURIComponent(currentZodiac)}&gender=${encodeURIComponent(currentGender)}&scene=${encodeURIComponent(newScene)}&userId=${userId}`);
             const data = await res.json();
-            const advice = data.content;
-            addLunaMessage(advice, [
+            addLunaMessage(data.content, [
                 { label: "💫 Why this color?", action: () => askWhyColor() },
                 { label: "✨ Back to original advice", action: () => recallMainAdvice() }
             ]);
@@ -372,7 +383,7 @@
         addUserMessage("Tell me more about my element ✨");
         addLunaMessage("Let me whisper the story of your element... 🌙", []);
         try {
-            const res = await fetch(`/api/chat?type=element_story&element=${encodeURIComponent(currentElement)}`);
+            const res = await fetch(`/api/index.js?type=element_story&element=${encodeURIComponent(currentElement)}&userId=${userId}`);
             const data = await res.json();
             addLunaMessage(data.content, [
                 { label: "💫 Why this color?", action: () => askWhyColor() },
@@ -385,7 +396,7 @@
         addUserMessage("Remind me my main advice 🌸");
         addLunaMessage("Reconnecting to your energy... 🌙", []);
         try {
-            const res = await fetch(`/api/chat?type=recall_advice&zodiac=${encodeURIComponent(currentZodiac)}&gender=${encodeURIComponent(currentGender)}&scene=${encodeURIComponent(currentScene)}&element=${encodeURIComponent(currentElement)}`);
+            const res = await fetch(`/api/index.js?type=recall_advice&zodiac=${encodeURIComponent(currentZodiac)}&gender=${encodeURIComponent(currentGender)}&scene=${encodeURIComponent(currentScene)}&element=${encodeURIComponent(currentElement)}&userId=${userId}`);
             const data = await res.json();
             addLunaMessage(data.content, [
                 { label: "💫 Why this color?", action: () => askWhyColor() },
@@ -394,7 +405,59 @@
         } catch(e) { addLunaMessage("Sweetie, just refresh and we'll restart ✨", []); }
     }
 
-    // load stored context after page reload
+    // ----- energy card generation -----
+    async function generateEnergyCard(sugg) {
+        const modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.background = 'rgba(0,0,0,0.9)';
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+        modal.style.zIndex = '9999';
+
+        const card = document.createElement('div');
+        card.style.background = 'linear-gradient(145deg, #2d1a4a, #1f0d38)';
+        card.style.borderRadius = '32px';
+        card.style.padding = '32px 24px';
+        card.style.textAlign = 'center';
+        card.style.width = '320px';
+        card.style.color = 'white';
+        card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.4)';
+        card.innerHTML = `
+            <div style="font-size: 2rem; margin-bottom: 8px;">✨</div>
+            <div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 16px;">Luna · Energy Stylist</div>
+            <div style="font-size: 0.9rem; margin-bottom: 24px;">${currentZodiac} · ${currentElement}</div>
+            <div style="background: rgba(255,255,255,0.1); border-radius: 60px; padding: 8px 16px; margin-bottom: 24px;">
+                🎨 ${sugg.recommendedColor}
+            </div>
+            <div style="font-size: 0.85rem; line-height: 1.6; margin-bottom: 24px;">${sugg.outfitAdvice.substring(0, 120)}...</div>
+            <div style="font-size: 0.7rem; color: #cdc0f0;">✨ Fashion is an experiment. You are the main character ✨</div>
+            <div style="margin-top: 24px;">
+                <button id="saveCardBtn" style="background: rgba(255,255,255,0.2); border: none; border-radius: 60px; padding: 8px 24px; color: white;">📸 Save image</button>
+            </div>
+        `;
+
+        modal.appendChild(card);
+        document.body.appendChild(modal);
+
+        document.getElementById('saveCardBtn').addEventListener('click', async () => {
+            const canvas = await html2canvas(card, { scale: 2 });
+            const link = document.createElement('a');
+            link.download = 'luna_energy_card.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.remove();
+        });
+    }
+
+    // ----- load stored context -----
     function loadStoredContext() {
         const z = localStorage.getItem('luna_zodiac');
         const el = localStorage.getItem('luna_element');
@@ -412,7 +475,123 @@
         }
     }
 
-    // form submit
+    // ----- explore functions -----
+    async function showElementPanel() {
+        const exploreDiv = document.getElementById('exploreContent');
+        exploreDiv.innerHTML = `
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+                <button class="chat-btn" onclick="loadElementKnowledge('Fire')">🔥 Fire</button>
+                <button class="chat-btn" onclick="loadElementKnowledge('Water')">💧 Water</button>
+                <button class="chat-btn" onclick="loadElementKnowledge('Air')">💨 Air</button>
+                <button class="chat-btn" onclick="loadElementKnowledge('Earth')">🌍 Earth</button>
+            </div>
+            <div id="elementDetail" style="background: rgba(255,255,255,0.03); border-radius: 20px; padding: 16px;">
+                <p style="color: #cdc0f0;">✨ Click any element — Luna will share the wisdom ✨</p>
+            </div>
+        `;
+    }
+
+    window.loadElementKnowledge = async function(element) {
+        const detailDiv = document.getElementById('elementDetail');
+        if (!detailDiv) return;
+        detailDiv.innerHTML = '<p class="loading">💫 Opening the door to your element...</p>';
+        try {
+            const res = await fetch(`/api/index.js?type=element_knowledge&element=${element}&userId=${userId}`);
+            const data = await res.json();
+            detailDiv.innerHTML = `<div style="white-space: pre-line; line-height: 1.6;">${data.content || '✨ Content loading...'}</div>`;
+        } catch(e) {
+            detailDiv.innerHTML = '<p>🌙 Network glitch, please try again～</p>';
+        }
+    };
+
+    async function showZodiacPanel() {
+        const exploreDiv = document.getElementById('exploreContent');
+        const zodiacs = ['Rat','Ox','Tiger','Rabbit','Dragon','Snake','Horse','Goat','Monkey','Rooster','Dog','Pig'];
+        exploreDiv.innerHTML = `
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                ${zodiacs.map(z => `<button class="chat-btn" onclick="loadZodiacProfile('${z}')">🐾 ${z}</button>`).join('')}
+            </div>
+            <div id="zodiacDetail" style="background: rgba(255,255,255,0.03); border-radius: 20px; padding: 16px;">
+                <p style="color: #cdc0f0;">✨ Click any zodiac — Luna will tell your story ✨</p>
+            </div>
+        `;
+    }
+
+    window.loadZodiacProfile = async function(zodiac) {
+        const detailDiv = document.getElementById('zodiacDetail');
+        if (!detailDiv) return;
+        detailDiv.innerHTML = '<p class="loading">⭐ Luna is reading the stars...</p>';
+        try {
+            const res = await fetch(`/api/index.js?type=zodiac_profile&zodiac=${zodiac}&userId=${userId}`);
+            const data = await res.json();
+            detailDiv.innerHTML = `<div style="white-space: pre-line; line-height: 1.6;">${data.content || '✨ Story loading...'}</div>`;
+        } catch(e) {
+            detailDiv.innerHTML = '<p>🌙 Please try again～</p>';
+        }
+    };
+
+    async function showDailyInspiration() {
+        const exploreDiv = document.getElementById('exploreContent');
+        exploreDiv.innerHTML = '<p class="loading">💫 Luna is finding your daily inspiration...</p>';
+        try {
+            const res = await fetch(`/api/index.js?type=daily_inspiration&userId=${userId}`);
+            const data = await res.json();
+            exploreDiv.innerHTML = `
+                <div style="text-align: center; padding: 12px;">
+                    <div style="font-size: 1.8rem; margin-bottom: 12px;">✨</div>
+                    <div style="font-style: italic; line-height: 1.6;">“${data.content || 'You are enough, exactly as you are.'}”</div>
+                    <div style="margin-top: 16px;">
+                        <button class="chat-btn" onclick="showDailyInspiration()">🔄 another one</button>
+                    </div>
+                </div>
+            `;
+        } catch(e) {
+            exploreDiv.innerHTML = '<p>🌙 Please try again～</p>';
+        }
+    }
+
+    // ----- check-in & mood -----
+    async function dailyCheckin() {
+        const btn = document.getElementById('checkinBtn');
+        btn.innerText = '✨ Checking...';
+        try {
+            const res = await fetch(`/api/index.js?type=daily_checkin&userId=${userId}`);
+            const data = await res.json();
+            document.getElementById('streakDisplay').innerHTML = `🔥 streak ${data.streak} days`;
+            alert(`✨ ${data.message}`);
+        } catch(e) {
+            alert('🌙 Check-in failed, please try again');
+        } finally {
+            btn.innerText = '✨ Check in';
+        }
+    }
+
+    document.getElementById('checkinBtn')?.addEventListener('click', dailyCheckin);
+
+    document.querySelectorAll('.mood-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const mood = btn.getAttribute('data-mood');
+            document.getElementById('moodMessage').innerHTML = '💫 Luna is feeling your energy...';
+            try {
+                const res = await fetch(`/api/index.js?type=record_mood&userId=${userId}&mood=${encodeURIComponent(mood)}`);
+                const data = await res.json();
+                document.getElementById('moodMessage').innerHTML = data.message;
+            } catch(e) {
+                document.getElementById('moodMessage').innerHTML = '🌙 Please try again～';
+            }
+        });
+    });
+
+    async function loadStreak() {
+        try {
+            const res = await fetch(`/api/index.js?type=get_streak&userId=${userId}`);
+            const data = await res.json();
+            document.getElementById('streakDisplay').innerHTML = `🔥 streak ${data.streak || 0} days`;
+        } catch(e) {}
+    }
+    loadStreak();
+
+    // ----- form submit -----
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const birth = document.getElementById('birthVal').value;
@@ -422,8 +601,10 @@
         await callFirstAnalysis(birth, gender, scene);
     });
 
-    // init: restore past chat if any
     loadStoredContext();
+    window.showElementPanel = showElementPanel;
+    window.showZodiacPanel = showZodiacPanel;
+    window.showDailyInspiration = showDailyInspiration;
 </script>
 </body>
 </html>
